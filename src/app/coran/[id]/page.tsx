@@ -1,115 +1,62 @@
 import Link from "next/link";
 import { sourates } from "@/data/quran";
-import { getSourate } from "@/lib/quran-api";
 
-type PageProps = {
+interface PageProps {
   params: Promise<{
     id: string;
   }>;
-};
+}
 
-export default async function SouratePage({ params }: PageProps) {
+export default async function CoranPage({ params }: PageProps) {
   const { id } = await params;
 
-  const idSourate = Number(id);
-
-  const sourateInfo = sourates.find(
-    (sourate) => sourate.id === idSourate
+  const sourate = sourates.find(
+    (item) => item.id === Number(id)
   );
 
-  if (!sourateInfo) {
+  if (!sourate) {
     return (
-      <main className="min-h-screen bg-green-50 flex items-center justify-center">
+      <main className="min-h-screen bg-green-50 p-10">
         <h1 className="text-3xl font-bold text-green-900">
           Sourate introuvable
         </h1>
+
+        <Link
+          href="/coran"
+          className="mt-5 inline-block text-green-700 underline"
+        >
+          Retour au Coran
+        </Link>
       </main>
     );
   }
 
-  const sourate = await getSourate(idSourate);
-
-
   return (
-    <main className="min-h-screen bg-green-50">
+    <main className="min-h-screen bg-green-50 p-8">
 
-      {/* En-tête */}
-      <section className="bg-green-900 py-16 text-center text-white">
+      <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow">
 
-        <div className="mx-auto max-w-5xl px-6">
+        <h1 className="text-center text-4xl font-bold text-green-900">
+          {sourate.arabicName}
+        </h1>
 
-          <h1 className="text-5xl font-bold">
-            {sourateInfo.name}
-          </h1>
+        <h2 className="mt-4 text-center text-2xl font-semibold">
+          {sourate.name}
+        </h2>
 
-          <p className="mt-5 text-4xl">
-            {sourateInfo.arabicName}
+        <p className="mt-4 text-center text-gray-600">
+          {sourate.verses} versets • {sourate.revelation}
+        </p>
+
+        <div className="mt-10">
+          <p className="text-lg text-gray-700">
+            La lecture complète de cette sourate sera intégrée
+            avec la récitation Warsh, la traduction et les
+            explications.
           </p>
-
-          <p className="mt-4 text-green-100">
-            Sourate {sourateInfo.id} • {sourateInfo.verses} versets • {sourateInfo.revelation}
-          </p>
-
         </div>
-
-      </section>
-
-
-
-      {/* Versets */}
-      <section className="py-12">
-
-        <div className="mx-auto max-w-4xl px-6">
-
-          <div className="rounded-3xl bg-white p-8 shadow-xl">
-
-
-            {sourate.ayahs.map((ayah: any) => (
-
-              <div
-                key={ayah.numberInSurah}
-                className="mb-10 border-b pb-8 last:border-none"
-              >
-
-                <p className="text-right text-3xl leading-[2.5] text-green-900">
-                  {ayah.text}
-                </p>
-
-
-                <div className="mt-5 flex justify-start">
-
-                  <span className="rounded-full bg-green-900 px-4 py-2 text-sm text-white">
-                    {ayah.numberInSurah}
-                  </span>
-
-                </div>
-
-
-              </div>
-
-            ))}
-
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-
-      {/* Retour */}
-      <div className="pb-12 text-center">
-
-        <Link
-          href="/coran"
-          className="rounded-full bg-green-900 px-8 py-3 text-white hover:bg-green-800"
-        >
-          ← Retour aux sourates
-        </Link>
 
       </div>
-
 
     </main>
   );

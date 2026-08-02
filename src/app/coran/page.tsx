@@ -1,150 +1,68 @@
 import Link from "next/link";
 import { sourates } from "@/data/quran";
-import { getSourate } from "@/lib/quran-api";
-import QuranAudio from "@/components/QuranAudio";
-import { quranAudio } from "@/lib/audio";
 
-
-type PageProps = {
-  params: Promise<{
-    id: string;
-  }>;
-};
-
-
-export default async function SouratePage({ params }: PageProps) {
-
-  const { id } = await params;
-
-  const idSourate = Number(id);
-
-
-  const sourateInfo = sourates.find(
-    (sourate) => sourate.id === idSourate
-  );
-
-
-  if (!sourateInfo) {
-    return (
-      <main className="min-h-screen bg-green-50 flex items-center justify-center">
-        <h1 className="text-3xl font-bold text-green-900">
-          Sourate introuvable
-        </h1>
-      </main>
-    );
-  }
-
-
-  const sourate = await getSourate(idSourate);
-
-
-  const audioUrl =
-    quranAudio.surahs[
-      idSourate as keyof typeof quranAudio.surahs
-    ];
-
-
-
+export default function CoranPage() {
   return (
     <main className="min-h-screen bg-green-50">
 
-
       <section className="bg-green-900 py-16 text-center text-white">
-
         <div className="mx-auto max-w-5xl px-6">
 
           <h1 className="text-5xl font-bold">
-            {sourateInfo.name}
+            Le Noble Coran
           </h1>
 
-
-          <p className="mt-5 text-4xl">
-            {sourateInfo.arabicName}
+          <p className="mt-5 text-lg text-green-100">
+            Les 114 sourates du Livre d'Allah ﷻ
           </p>
 
+        </div>
+      </section>
 
-          <p className="mt-4 text-green-100">
-            Sourate {sourateInfo.id} • {sourateInfo.verses} versets • {sourateInfo.revelation}
-          </p>
 
+      <section className="py-12">
+
+        <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-2 lg:grid-cols-3">
+
+          {sourates.map((sourate) => (
+
+            <Link
+              key={sourate.id}
+              href={`/coran/${sourate.id}`}
+              className="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+            >
+
+              <div className="flex items-center justify-between">
+
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-900 text-white">
+                  {sourate.id}
+                </span>
+
+                <span className="text-2xl text-green-900">
+                  {sourate.arabicName}
+                </span>
+
+              </div>
+
+
+              <h2 className="mt-5 text-xl font-bold text-green-900">
+                {sourate.name}
+              </h2>
+
+
+              <p className="mt-2 text-gray-600">
+                {sourate.verses} versets • {sourate.revelation}
+              </p>
+
+
+            </Link>
+
+          ))}
 
         </div>
 
       </section>
-
-
-
-      <section className="py-10">
-
-        <div className="mx-auto max-w-4xl px-6">
-
-          <QuranAudio
-            title={`Écouter ${sourateInfo.name}`}
-            audioUrl={audioUrl}
-          />
-
-        </div>
-
-      </section>
-
-
-
-      <section className="pb-12">
-
-        <div className="mx-auto max-w-4xl px-6">
-
-
-          <div className="rounded-3xl bg-white p-8 shadow-xl">
-
-
-            {sourate.ayahs.map((ayah: any) => (
-
-              <article
-                key={ayah.numberInSurah}
-                className="mb-10 border-b pb-8 last:border-none"
-              >
-
-
-                <p className="text-right text-3xl leading-[2.5] text-green-900">
-                  {ayah.text}
-                </p>
-
-
-                <div className="mt-5">
-
-                  <span className="rounded-full bg-green-900 px-4 py-2 text-sm text-white">
-                    Verset {ayah.numberInSurah}
-                  </span>
-
-                </div>
-
-
-              </article>
-
-            ))}
-
-
-          </div>
-
-
-        </div>
-
-      </section>
-
-
-
-      <div className="pb-12 text-center">
-
-        <Link
-          href="/coran"
-          className="rounded-full bg-green-900 px-8 py-3 text-white hover:bg-green-800"
-        >
-          ← Retour aux sourates
-        </Link>
-
-      </div>
-
 
     </main>
   );
-} 
+}
