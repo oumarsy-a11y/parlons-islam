@@ -1,67 +1,69 @@
-import Link from "next/link";
-import { sourates } from "@/data/quran";
+import { BookOpenText } from "lucide-react";
 
-export default function CoranPage() {
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
+import CoranList from "@/components/CoranList";
+
+import { getSourates } from "@/services/quranService";
+
+
+export default async function CoranPage() {
+
+  const sourates = await getSourates();
+
+
   return (
-    <main className="min-h-screen bg-green-50">
+    <main className="min-h-screen bg-white">
 
-      <section className="bg-green-900 py-16 text-center text-white">
+      <Menu />
+
+
+      <section className="
+        bg-gradient-to-b
+        from-green-50
+        to-white
+        py-20
+        text-center
+      ">
+
         <div className="mx-auto max-w-5xl px-6">
 
-          <h1 className="text-5xl font-bold">
+          <BookOpenText
+            className="mx-auto mb-6 text-green-900"
+            size={60}
+          />
+
+
+          <h1 className="
+            text-5xl
+            font-bold
+            text-green-900
+          ">
             Le Noble Coran
           </h1>
 
-          <p className="mt-5 text-lg text-green-100">
+
+          <p className="
+            mt-5
+            text-lg
+            text-gray-600
+          ">
             Les 114 sourates du Livre d'Allah ﷻ
           </p>
 
         </div>
+
+      </section>
+
+
+      <section className="py-14">
+
+        <CoranList sourates={sourates} />
+
       </section>
 
 
-      <section className="py-12">
-
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-2 lg:grid-cols-3">
-
-          {sourates.map((sourate) => (
-
-            <Link
-              key={sourate.id}
-              href={`/coran/${sourate.id}`}
-              className="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
-            >
-
-              <div className="flex items-center justify-between">
-
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-900 text-white">
-                  {sourate.id}
-                </span>
-
-                <span className="text-2xl text-green-900">
-                  {sourate.arabicName}
-                </span>
-
-              </div>
-
-
-              <h2 className="mt-5 text-xl font-bold text-green-900">
-                {sourate.name}
-              </h2>
-
-
-              <p className="mt-2 text-gray-600">
-                {sourate.verses} versets • {sourate.revelation}
-              </p>
-
-
-            </Link>
-
-          ))}
-
-        </div>
-
-      </section>
+      <Footer />
 
     </main>
   );

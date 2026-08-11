@@ -5,11 +5,12 @@ import {
   ScrollText,
   Scale,
   Heart,
-  Circle,
+  MoonStar,
   Landmark,
-  Library,
+  LibraryBig,
   PenLine,
 } from "lucide-react";
+
 import { motion } from "framer-motion";
 
 export default function Categories() {
@@ -30,17 +31,17 @@ export default function Categories() {
       title: "Fiqh Malikite",
       icon: Scale,
       description:
-        "L'apprentissage de la jurisprudence selon l'école de l'Imam Mâlik.",
+        "La jurisprudence selon l'école de l'Imam Mâlik رضي الله عنه.",
     },
     {
       title: "Taṣawwuf",
       icon: Heart,
       description:
-        "La purification de l'âme et le cheminement spirituel fondé sur le Coran et la Sunna.",
+        "La purification du cœur et le cheminement spirituel fondé sur le Coran et la Sunna.",
     },
     {
       title: "Tarîqa Tijāniyya",
-      icon: Circle,
+      icon: MoonStar,
       description:
         "Histoire, enseignements et grandes figures de la voie tijāniyya.",
     },
@@ -48,13 +49,13 @@ export default function Categories() {
       title: "Histoire de l'Islam",
       icon: Landmark,
       description:
-        "Des prophètes, compagnons et grandes figures de la civilisation islamique.",
+        "Prophètes, compagnons, savants et grandes étapes de la civilisation islamique.",
     },
     {
       title: "Bibliothèque",
-      icon: Library,
+      icon: LibraryBig,
       description:
-        "Livres, documents et ressources islamiques.",
+        "Livres, documents et ressources pour approfondir ses connaissances.",
     },
     {
       title: "Enseignements",
@@ -65,52 +66,94 @@ export default function Categories() {
   ];
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-white py-20">
+
       <div className="mx-auto max-w-6xl px-6">
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 text-center text-3xl font-bold text-green-900"
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-4 text-center text-4xl font-bold text-green-900"
         >
           Explorer Parlons Islam
         </motion.h2>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <p className="mx-auto mb-12 max-w-2xl text-center text-gray-600">
+          Découvrez les différentes dimensions du savoir islamique,
+          de la révélation à la purification du cœur.
+        </p>
+
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+
           {categories.map((category, index) => {
+
             const Icon = category.icon;
 
             return (
+
               <motion.div
                 key={category.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
+                  duration: 0.6,
+                  delay: index * 0.1,
                 }}
-                whileHover={{ y: -8 }}
-                className="rounded-2xl bg-white p-6 shadow-md transition hover:shadow-xl"
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -10,
+                }}
+                className="
+                  group rounded-3xl
+                  border border-green-100
+                  bg-white p-7
+                  shadow-sm
+                  transition-all
+                  hover:shadow-xl
+                "
               >
-                <Icon
-                  size={35}
-                  className="mb-4 text-green-900"
-                />
 
-                <h3 className="mb-3 text-xl font-semibold text-green-900">
+                <div className="
+                  mb-5 flex h-14 w-14
+                  items-center justify-center
+                  rounded-full
+                  bg-green-50
+                  transition
+                  group-hover:bg-yellow-50
+                ">
+                  <Icon
+                    size={30}
+                    className="text-green-900 transition group-hover:text-yellow-600"
+                  />
+                </div>
+
+
+                <h3 className="
+                  mb-3
+                  text-xl
+                  font-bold
+                  text-green-900
+                ">
                   {category.title}
                 </h3>
 
-                <p className="text-gray-600">
+
+                <p className="leading-relaxed text-gray-600">
                   {category.description}
                 </p>
+
               </motion.div>
+
             );
           })}
+
         </div>
 
       </div>
+
     </section>
   );
 }

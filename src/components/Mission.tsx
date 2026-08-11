@@ -1,80 +1,128 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Compass, HeartHandshake, BookOpen } from "lucide-react";
+import { Compass, HeartHandshake, BookOpenText } from "lucide-react";
 
 export default function Mission() {
   const values = [
     {
-      icon: BookOpen,
+      icon: BookOpenText,
       title: "Transmettre le savoir",
       description:
-        "Partager un enseignement authentique fondé sur le Coran, la Sunna et la tradition des savants.",
+        "Partager un enseignement bénéfique fondé sur le Coran, la Sunna et l'héritage des savants.",
     },
     {
       icon: HeartHandshake,
       title: "Éduquer les cœurs",
       description:
-        "Favoriser une spiritualité sincère, fondée sur la purification de l'âme, le bon comportement et la proximité avec Allah.",
+        "Cultiver une spiritualité sincère à travers la purification de l'âme, le bon comportement et la proximité avec Allah.",
     },
     {
       icon: Compass,
       title: "Orienter avec sagesse",
       description:
-        "Offrir des repères clairs pour vivre sa foi avec équilibre, connaissance et miséricorde.",
+        "Donner des repères clairs pour cheminer avec équilibre, connaissance et miséricorde.",
     },
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-gradient-to-b from-white to-green-50 py-24">
+
       <div className="mx-auto max-w-6xl px-6">
+
+        {/* Titre */}
         <motion.h2
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center text-4xl font-bold text-green-900"
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center text-4xl font-bold text-green-900 md:text-5xl"
         >
           Notre mission
         </motion.h2>
 
+
+        {/* Introduction */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true }}
           className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-gray-600"
         >
-          Parlons Islam est une plateforme dédiée à la transmission d'un savoir
-          bénéfique, à l'approfondissement de la foi et à l'éveil spirituel,
-          dans le respect du Coran, de la Sunna et de l'héritage des savants.
+          Parlons Islam est une plateforme dédiée à la transmission d'un
+          savoir bénéfique, à l'approfondissement de la foi et à l'éducation
+          spirituelle, dans le respect du Coran, de la Sunna et de l'héritage
+          des savants.
         </motion.p>
 
+
+        {/* Valeurs */}
         <div className="mt-14 grid gap-8 md:grid-cols-3">
+
           {values.map((item, index) => {
+
             const Icon = item.icon;
 
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15 }}
-                whileHover={{ y: -8 }}
-                className="rounded-2xl border border-green-100 bg-green-50 p-8 shadow-sm"
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="
+                  rounded-3xl
+                  border border-green-100
+                  bg-white
+                  p-8
+                  shadow-sm
+                  transition-all
+                  hover:shadow-xl
+                "
               >
-                <Icon size={42} className="mb-5 text-green-900" />
 
-                <h3 className="mb-3 text-xl font-semibold text-green-900">
+                {/* Icône */}
+                <div className="
+                  mb-6 flex h-16 w-16
+                  items-center justify-center
+                  rounded-full
+                  bg-green-50
+                ">
+                  <Icon
+                    size={36}
+                    className="text-green-900"
+                  />
+                </div>
+
+
+                <h3 className="
+                  mb-3
+                  text-2xl
+                  font-bold
+                  text-green-900
+                ">
                   {item.title}
                 </h3>
+
 
                 <p className="leading-relaxed text-gray-600">
                   {item.description}
                 </p>
+
               </motion.div>
             );
+
           })}
+
         </div>
+
       </div>
+
     </section>
   );
 }
