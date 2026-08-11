@@ -1,14 +1,10 @@
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  History,
-} from "lucide-react";
-
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
 
 import { histoireTassawuf } from "@/data/histoireTassawuf";
 
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 interface PageProps {
   params: Promise<{
@@ -16,240 +12,83 @@ interface PageProps {
   }>;
 }
 
-
-
-export default async function HistoireTassawufDetailPage({
+export default async function HistoireTassawufPage({
   params,
 }: PageProps) {
-
-
   const { id } = await params;
 
-
   const chapitre = histoireTassawuf.find(
-    (item) => item.id === Number(id)
+    (item) => item.id === id
   );
-
-
 
   if (!chapitre) {
-
-    return (
-
-      <main className="min-h-screen bg-white">
-
-        <Menu />
-
-
-        <section className="py-20 text-center">
-
-
-          <h1
-            className="
-              text-3xl
-              font-bold
-              text-green-900
-            "
-          >
-            Chapitre introuvable
-          </h1>
-
-
-
-          <Link
-            href="/tassawuf/histoire"
-            className="
-              mt-6
-              inline-flex
-              items-center
-              gap-2
-              text-green-700
-              underline
-            "
-          >
-
-            <ArrowLeft size={18} />
-
-            Retour à l'histoire du Taṣawwuf
-
-          </Link>
-
-
-        </section>
-
-
-        <Footer />
-
-      </main>
-
-    );
-
+    notFound();
   }
 
-
-
-
   return (
-
-    <main className="min-h-screen bg-white">
-
-
+    <>
       <Menu />
 
-
-
-      {/* En-tête */}
-
-      <section
-        className="
-          bg-gradient-to-b
-          from-green-50
-          to-white
-          py-16
-        "
-      >
-
-        <div
-          className="
-            mx-auto
-            max-w-4xl
-            px-6
-            text-center
-          "
-        >
-
-
-          <History
-            size={60}
-            className="mx-auto text-green-900"
-          />
-
-
-
-          <h1
-            className="
-              mt-6
-              text-4xl
-              font-bold
-              text-green-900
-            "
+      <main className="min-h-screen bg-white">
+        <article className="mx-auto max-w-4xl px-6 py-16">
+          <Link
+            href="/tassawuf/histoire"
+            className="mb-8 inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-900"
           >
+            ← Retour à l'histoire du Taṣawwuf
+          </Link>
 
-            {chapitre.title}
-
-          </h1>
-
-
-
-          <p
-            className="
-              mt-4
-              text-yellow-700
-            "
-          >
-
-            {chapitre.category}
-
-          </p>
-
-
-        </div>
-
-
-      </section>
-
-
-
-
-
-      {/* Lecture */}
-
-      <section className="py-12">
-
-
-        <div
-          className="
-            mx-auto
-            max-w-4xl
-            px-6
-          "
-        >
-
-
-          <article
-            className="
-              rounded-3xl
-              border
-              border-green-100
-              bg-white
-              p-8
-              shadow-sm
-            "
-          >
-
-
-            <p
-              className="
-                whitespace-pre-line
-                text-lg
-                leading-relaxed
-                text-gray-700
-              "
-            >
-
-              {chapitre.content}
-
+          <header className="mb-12">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+              Histoire du Taṣawwuf
             </p>
 
+            <h1 className="text-3xl font-bold leading-tight text-gray-900 md:text-5xl">
+              {chapitre.title}
+            </h1>
 
-          </article>
+            {chapitre.subtitle && (
+              <p className="mt-4 text-lg leading-relaxed text-gray-600">
+                {chapitre.subtitle}
+              </p>
+            )}
+          </header>
 
-
-
-
-
-          <div
-            className="
-              mt-8
-              rounded-3xl
-              bg-green-50
-              p-8
-            "
-          >
-
-
-            <h2
-              className="
-                font-bold
-                text-green-900
-              "
-            >
-              Source
-            </h2>
-
-
-            <p className="mt-3 text-gray-700">
-              {chapitre.source}
-            </p>
-
-
+          <div className="space-y-6">
+            {chapitre.content.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-lg leading-8 text-gray-700"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
 
+          {chapitre.source && (
+            <div className="mt-12 rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-emerald-800">
+                Sources
+              </h2>
 
+              <p className="text-sm leading-6 text-gray-700">
+                {chapitre.source}
+              </p>
+            </div>
+          )}
 
-
-        </div>
-
-
-      </section>
-
-
+          <div className="mt-12 border-t border-gray-200 pt-8">
+            <Link
+              href="/tassawuf/histoire"
+              className="inline-flex rounded-xl bg-emerald-700 px-5 py-3 font-medium text-white transition hover:bg-emerald-800"
+            >
+              Voir tous les chapitres
+            </Link>
+          </div>
+        </article>
+      </main>
 
       <Footer />
-
-
-    </main>
-
+    </>
   );
-
 }
