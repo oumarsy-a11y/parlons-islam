@@ -21,8 +21,7 @@ export const reciters = [
     riwaya: "Warsh 'an Nāfi'",
     country: "Sénégal",
     url: "",
-    source:
-      "https://t.me/Muhammad_Hady_Toure",
+    source: "https://t.me/Muhammad_Hady_Toure",
   },
 
   {
