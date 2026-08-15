@@ -17,6 +17,7 @@ import Link from "next/link";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
+import IslamicDateTime from "@/components/IslamicDateTime";
 
 export default function Home() {
   return (
@@ -42,12 +43,12 @@ export default function Home() {
 
           <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl">
             Une porte ouverte vers le Coran, la Sunna, le Fiqh malikite,
-            le Taṣawwuf et l'héritage de la Ṭarīqa Tijāniyya.
+            le Taṣawwuf et l&apos;héritage de la Ṭarīqa Tijāniyya.
           </p>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-gray-500">
             Apprendre, comprendre et cheminer avec une approche fondée sur
-            les sources de l'Islam et la transmission du savoir.
+            les sources de l&apos;Islam et la transmission du savoir.
           </p>
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
@@ -70,6 +71,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ========================================================= */}
+      {/* DATE & HEURE */}
+      {/* ========================================================= */}
+
+      <IslamicDateTime />
 
       {/* ========================================================= */}
       {/* RECHERCHE */}
@@ -108,12 +115,12 @@ export default function Home() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-              Les sciences de l'Islam
+              Les sciences de l&apos;Islam
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Des espaces consacrés au Livre d'Allah, à la tradition
-              prophétique, au droit musulman et à l'éducation spirituelle.
+              Des espaces consacrés au Livre d&apos;Allah, à la tradition
+              prophétique, au droit musulman et à l&apos;éducation spirituelle.
             </p>
           </div>
 
@@ -141,7 +148,7 @@ export default function Home() {
 
               <p className="mt-3 leading-7 text-gray-600">
                 Lecture des sourates, traductions, récitations et découverte
-                du Livre d'Allah.
+                du Livre d&apos;Allah.
               </p>
             </Link>
 
@@ -167,8 +174,8 @@ export default function Home() {
               </h3>
 
               <p className="mt-3 leading-7 text-gray-600">
-                Les paroles et enseignements du Messager d'Allah ﷺ, organisés
-                pour faciliter l'étude.
+                Les paroles et enseignements du Messager d&apos;Allah ﷺ,
+                organisés pour faciliter l&apos;étude.
               </p>
             </Link>
 
@@ -194,7 +201,7 @@ export default function Home() {
               </h3>
 
               <p className="mt-3 leading-7 text-gray-600">
-                Découvrez les fondements et les règles du madhhab de l'Imam
+                Découvrez les fondements et les règles du madhhab de l&apos;Imam
                 Mālik رحمه الله.
               </p>
             </Link>
@@ -276,7 +283,7 @@ export default function Home() {
 
               <p className="mt-3 leading-7 text-gray-600">
                 Découvrez les récitateurs et explorez les différentes
-                possibilités d'écoute du Coran.
+                possibilités d&apos;écoute du Coran.
               </p>
             </Link>
           </div>
@@ -381,7 +388,7 @@ export default function Home() {
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-100">
             Explorez les ressources de Parlons Islam et avancez pas à pas
-            dans l'étude, la compréhension et la purification intérieure.
+            dans l&apos;étude, la compréhension et la purification intérieure.
           </p>
 
           <div className="mt-8">
@@ -389,7 +396,7 @@ export default function Home() {
               href="/coran"
               className="inline-flex items-center gap-2 rounded-2xl bg-white px-7 py-4 font-semibold text-emerald-950 transition hover:bg-emerald-50"
             >
-              Commencer l'exploration
+              Commencer l&apos;exploration
               <ArrowRight size={18} />
             </Link>
           </div>

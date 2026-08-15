@@ -13,6 +13,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const timeline = [
   {
@@ -25,7 +26,7 @@ const timeline = [
     date: "Les débuts",
     title: "Un groupe WhatsApp",
     icon: MessageCircle,
-    text: "Oumar Sylla, Mamadou Koné, Seydou Eddu Diawara et Kerfala Savané décident de commencer simplement. Un groupe WhatsApp est créé. L'ambition est modeste dans sa forme, mais profonde dans son intention.",
+    text: " Mamadou Koné, Seydou Eddu Diawara , Kerfala Savané et Oumar Sylla décident de commencer simplement. Un groupe WhatsApp est créé. L'ambition est modeste dans sa forme, mais profonde dans son intention.",
   },
   {
     date: "Puis viennent les adhérents",
@@ -66,122 +67,108 @@ const timeline = [
 ];
 
 const founders = [
-  {
-    name: "Oumar Sylla",
-    role: "Co-fondateur",
-  },
-  {
-    name: "Mamadou Koné",
-    role: "Co-fondateur",
-  },
-  {
-    name: "Seydou Eddu Diawara",
-    role: "Co-fondateur",
-  },
-  {
-    name: "Kerfala Savané",
-    role: "Co-fondateur",
-  },
+  "Mamadou Koné",
+  "Seydou Eddu Diawara",
+  "Kerfala Savané",
+  "Oumar Sylla",
 ];
 
 export default function NotreHistoirePage() {
   return (
-    <main className="min-h-screen bg-[#f7f4ec] text-slate-800">
+    <main className="min-h-screen overflow-hidden bg-[#f7f4ec] text-slate-800">
 
-      {/* ========================================================= */}
       {/* HERO */}
-      {/* ========================================================= */}
-
-      <section className="relative min-h-[650px] overflow-hidden text-white">
+      <section className="relative min-h-[680px] overflow-hidden text-white">
 
         <Image
-         src="/images/zaouia.jpeg"
+          src="/images/zaouia.jpeg"
           alt="Zāwiya marocaine"
           fill
           priority
-          className="object-cover"
+          sizes="100vw"
+          className="object-cover transition-transform duration-[3000ms] hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-[#14231f]/75" />
+        <div className="absolute inset-0 bg-[#14231f]/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-[#14231f]/20 to-[#14231f]" />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#14231f]" />
-
-        <div className="relative mx-auto flex min-h-[650px] max-w-6xl flex-col px-6 py-8">
+        <div className="relative mx-auto flex min-h-[680px] max-w-6xl flex-col px-5 py-7 sm:px-6">
 
           <Link
             href="/"
-            className="inline-flex w-fit items-center gap-2 text-sm text-white/75 transition hover:text-white"
+            className="group inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-black/10 px-4 py-2 text-sm text-white/80 backdrop-blur-md transition hover:border-white/40 hover:bg-white/10 hover:text-white"
           >
-            <ArrowLeft size={17} />
+            <ArrowLeft
+              size={17}
+              className="transition-transform group-hover:-translate-x-1"
+            />
             Retour à l'accueil
           </Link>
 
-          <div className="mx-auto flex flex-1 max-w-4xl items-center justify-center text-center">
+          <div className="flex flex-1 items-center justify-center text-center">
 
-            <div>
+            <Reveal className="max-w-4xl">
 
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#d5bd82]/50 bg-black/20 backdrop-blur-sm">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#d5bd82]/60 bg-black/20 shadow-2xl backdrop-blur-md">
                 <Moon
                   size={30}
-                  strokeWidth={1.5}
-                  className="text-[#d5bd82]"
+                  strokeWidth={1.4}
+                  className="text-[#e1c986]"
                 />
               </div>
 
-              <p className="mt-7 text-sm font-semibold uppercase tracking-[0.35em] text-[#e0ca92]">
+              <p className="mt-7 text-xs font-semibold uppercase tracking-[0.35em] text-[#e1c986] sm:text-sm">
                 Notre histoire
               </p>
 
-              <h1 className="mt-5 text-5xl font-semibold tracking-tight md:text-7xl">
+              <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
                 Une idée née entre frères.
               </h1>
 
-              <p className="mt-4 text-3xl font-light text-[#e0ca92] md:text-5xl">
+              <p className="mt-4 text-2xl font-light text-[#e0ca92] sm:text-4xl md:text-5xl">
                 Un chemin de transmission.
               </p>
 
-              <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8 md:text-xl">
                 Depuis juin 2023, Parlons Islam avance entre réflexions,
                 apprentissages, silences et renaissances, avec une même
                 intention : partager le bien et contribuer à la transmission
                 du savoir islamique.
               </p>
 
-              <div className="mt-10 flex justify-center">
+              <div className="mt-9 flex justify-center">
                 <a
                   href="#commencement"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium backdrop-blur-sm transition hover:bg-white/20"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium backdrop-blur-md transition hover:bg-white/20"
                 >
                   Découvrir notre histoire
-                  <ArrowRight size={17} />
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
                 </a>
               </div>
 
-            </div>
+            </Reveal>
 
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* COMMENCEMENT */}
-      {/* ========================================================= */}
+      <section id="commencement" className="bg-[#fbfaf6] py-20 sm:py-24">
 
-      <section
-        id="commencement"
-        className="bg-[#fbfaf6] py-24"
-      >
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <Reveal className="mx-auto max-w-4xl px-5 text-center sm:px-6">
 
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#9b8150]">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9b8150] sm:text-sm">
             Le commencement
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold text-[#263d35] md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#263d35] sm:text-4xl md:text-5xl">
             Avant le site, il y avait une intention.
           </h2>
 
-          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-lg leading-8 text-slate-600">
+          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
 
             <p>
               Parlons Islam n'est pas né d'abord comme un site internet.
@@ -206,97 +193,95 @@ export default function NotreHistoirePage() {
 
           <div className="mx-auto mt-10 h-px w-16 bg-[#c6a967]" />
 
-        </div>
+        </Reveal>
+
       </section>
 
-      {/* ========================================================= */}
       {/* FONDATEURS */}
-      {/* ========================================================= */}
+      <section className="bg-[#eee8da] py-20 sm:py-24">
 
-      <section className="bg-[#eee8da] py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
 
-        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto max-w-3xl text-center">
 
-          <div className="mx-auto max-w-3xl text-center">
-
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8d7447]">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8d7447] sm:text-sm">
               À l'origine
             </p>
 
-            <h2 className="mt-4 text-3xl font-semibold text-[#263d35] md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold text-[#263d35] sm:text-4xl md:text-5xl">
               Quatre frères
             </h2>
 
-            <p className="mt-5 leading-8 text-slate-600">
+            <p className="mt-5 leading-7 text-slate-600 sm:leading-8">
               Quatre personnes, une intention commune et une première
               initiative qui allait progressivement prendre de l'ampleur.
             </p>
 
-          </div>
+          </Reveal>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
 
             {founders.map((founder, index) => (
-              <div
-                key={founder.name}
-                className="group rounded-[2rem] border border-[#ded4bd] bg-[#fffdf8] p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-              >
 
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#d5bd82] bg-[#f0eadb] text-[#806a42] transition group-hover:scale-105">
-                  <Users size={30} strokeWidth={1.5} />
+              <Reveal key={founder} delay={index * 0.08}>
+
+                <div className="group h-full rounded-[2rem] border border-[#ded4bd] bg-[#fffdf8] p-7 text-center shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-xl sm:p-8">
+
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#d5bd82] bg-[#f0eadb] text-[#806a42] transition duration-500 group-hover:rotate-3 group-hover:scale-105">
+                    <Users size={30} strokeWidth={1.5} />
+                  </div>
+
+                  <p className="mt-6 text-lg font-semibold text-[#263d35] sm:text-xl">
+                    {founder}
+                  </p>
+
+                  <p className="mt-2 text-sm text-[#9b8150]">
+                    Co-fondateur
+                  </p>
+
+                  <div className="mx-auto mt-5 h-px w-10 bg-[#d5bd82]" />
+
+                  <p className="mt-4 text-sm leading-6 text-slate-500">
+                    L'un des quatre frères à l'origine de Parlons Islam.
+                  </p>
+
                 </div>
 
-                <p className="mt-6 text-xl font-semibold text-[#263d35]">
-                  {founder.name}
-                </p>
+              </Reveal>
 
-                <p className="mt-2 text-sm text-[#9b8150]">
-                  {founder.role}
-                </p>
-
-                <div className="mx-auto mt-5 h-px w-10 bg-[#d5bd82]" />
-
-                <p className="mt-4 text-sm leading-6 text-slate-500">
-                  L'un des quatre frères à l'origine de Parlons Islam.
-                </p>
-
-              </div>
             ))}
 
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* CHRONOLOGIE */}
-      {/* ========================================================= */}
+      <section className="bg-[#fbfaf6] py-20 sm:py-24">
 
-      <section className="bg-[#fbfaf6] py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
 
-        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto max-w-3xl text-center">
 
-          <div className="mx-auto max-w-3xl text-center">
-
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#9b8150]">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9b8150] sm:text-sm">
               Juin 2023 → aujourd'hui
             </p>
 
-            <h2 className="mt-4 text-3xl font-semibold text-[#263d35] md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold text-[#263d35] sm:text-4xl md:text-5xl">
               Un chemin fait de saisons
             </h2>
 
-            <p className="mt-5 leading-8 text-slate-600">
+            <p className="mt-5 leading-7 text-slate-600 sm:leading-8">
               Comme tout projet porté par des hommes, Parlons Islam a connu
               des élans, des difficultés, des pauses et de nouveaux départs.
             </p>
 
-          </div>
+          </Reveal>
 
-          <div className="relative mx-auto mt-16 max-w-5xl">
+          <div className="relative mx-auto mt-14 max-w-5xl sm:mt-16">
 
-            <div className="absolute bottom-0 left-6 top-0 w-px bg-[#d8ccb0] md:left-1/2 md:-translate-x-1/2" />
+            <div className="absolute bottom-0 left-5 top-0 w-px bg-[#d8ccb0] md:left-1/2 md:-translate-x-1/2" />
 
-            <div className="space-y-12">
+            <div className="space-y-10 sm:space-y-12">
 
               {timeline.map((item, index) => {
 
@@ -304,71 +289,64 @@ export default function NotreHistoirePage() {
                 const right = index % 2 !== 0;
 
                 return (
-                  <div
-                    key={item.title}
-                    className="relative md:grid md:grid-cols-2 md:gap-16"
-                  >
 
-                    <div
-                      className={
-                        right
-                          ? "md:col-start-2"
-                          : "md:col-start-1"
-                      }
-                    >
+                  <Reveal key={item.title} delay={index * 0.04}>
 
-                      <article className="ml-12 rounded-[2rem] border border-[#e3dccb] bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg md:ml-0">
+                    <div className="relative md:grid md:grid-cols-2 md:gap-16">
 
-                        <div className="flex items-start gap-4">
+                      <div className={right ? "md:col-start-2" : "md:col-start-1"}>
 
-                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#eee8da] text-[#806a42]">
-                            <Icon size={22} strokeWidth={1.6} />
-                          </div>
+                        <article className="ml-10 rounded-[1.7rem] border border-[#e3dccb] bg-white p-6 shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-lg sm:ml-0 sm:rounded-[2rem] sm:p-7">
 
-                          <div>
+                          <div className="flex items-start gap-4">
 
-                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#9b8150]">
-                              {item.date}
-                            </p>
+                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#eee8da] text-[#806a42] sm:h-12 sm:w-12">
+                              <Icon size={21} strokeWidth={1.6} />
+                            </div>
 
-                            <h3 className="mt-2 text-xl font-semibold text-[#263d35]">
-                              {item.title}
-                            </h3>
+                            <div>
+
+                              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b8150] sm:text-xs">
+                                {item.date}
+                              </p>
+
+                              <h3 className="mt-2 text-lg font-semibold leading-snug text-[#263d35] sm:text-xl">
+                                {item.title}
+                              </h3>
+
+                            </div>
 
                           </div>
 
-                        </div>
+                          <p className="mt-5 text-[15px] leading-7 text-slate-600 sm:text-base">
+                            {item.text}
+                          </p>
 
-                        <p className="mt-5 leading-7 text-slate-600">
-                          {item.text}
-                        </p>
+                        </article>
 
-                      </article>
+                      </div>
+
+                      <div className="absolute left-5 top-7 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border-4 border-[#fbfaf6] bg-[#b89a5d] shadow-sm md:left-1/2" />
 
                     </div>
 
-                    <div className="absolute left-6 top-8 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border-4 border-[#fbfaf6] bg-[#b89a5d] md:left-1/2" />
+                  </Reveal>
 
-                  </div>
                 );
               })}
 
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ========================================================= */}
-      {/* LES SILENCES */}
-      {/* ========================================================= */}
+      {/* SILENCE */}
+      <section className="relative overflow-hidden bg-[#263d35] py-20 text-white sm:py-24">
 
-      <section className="relative overflow-hidden bg-[#263d35] py-24 text-white">
+        <div className="absolute -right-28 -top-28 h-72 w-72 rounded-full border border-white/10" />
+        <div className="absolute -bottom-32 -left-24 h-80 w-80 rounded-full border border-[#d5bd82]/10" />
 
-        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-white/10" />
-        <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full border border-[#d5bd82]/10" />
-
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <Reveal className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
 
           <Clock3
             size={38}
@@ -376,15 +354,15 @@ export default function NotreHistoirePage() {
             className="mx-auto text-[#d5bd82]"
           />
 
-          <p className="mt-7 text-sm font-semibold uppercase tracking-[0.3em] text-[#d5bd82]">
+          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.3em] text-[#d5bd82] sm:text-sm">
             Une partie de notre histoire
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
             Même le silence fait partie du chemin.
           </h2>
 
-          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-lg leading-8 text-white/70">
+          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
 
             <p>
               Les obligations professionnelles ont progressivement rendu
@@ -404,32 +382,30 @@ export default function NotreHistoirePage() {
 
           </div>
 
-        </div>
+        </Reveal>
+
       </section>
 
-      {/* ========================================================= */}
       {/* RENAISSANCE */}
-      {/* ========================================================= */}
+      <section className="bg-[#f7f4ec] py-20 sm:py-24">
 
-      <section className="bg-[#f7f4ec] py-24">
+        <Reveal className="mx-auto max-w-5xl px-5 sm:px-6">
 
-        <div className="mx-auto max-w-5xl px-6">
-
-          <div className="grid items-center gap-12 md:grid-cols-2">
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
 
             <div>
 
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#9b8150]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9b8150] sm:text-sm">
                 Une nouvelle étape
               </p>
 
-              <h2 className="mt-4 text-3xl font-semibold text-[#263d35] md:text-5xl">
+              <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#263d35] sm:text-4xl md:text-5xl">
                 De l'idée à une vision plus large.
               </h2>
 
             </div>
 
-            <div className="space-y-5 leading-8 text-slate-600">
+            <div className="space-y-5 leading-7 text-slate-600 sm:leading-8">
 
               <p>
                 Après plusieurs assises spirituelles, la réflexion s'est
@@ -450,16 +426,17 @@ export default function NotreHistoirePage() {
             </div>
 
           </div>
-        </div>
+
+        </Reveal>
+
       </section>
 
-      {/* ========================================================= */}
       {/* AUJOURD'HUI */}
-      {/* ========================================================= */}
+      <section className="relative overflow-hidden bg-[#eee8da] py-20 sm:py-24">
 
-      <section className="bg-[#eee8da] py-24">
+        <div className="absolute left-1/2 top-0 h-px w-32 -translate-x-1/2 bg-[#d5bd82]" />
 
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <Reveal className="relative mx-auto max-w-4xl px-5 text-center sm:px-6">
 
           <Sparkles
             size={38}
@@ -467,40 +444,44 @@ export default function NotreHistoirePage() {
             className="mx-auto text-[#9b8150]"
           />
 
-          <p className="mt-7 text-sm font-semibold uppercase tracking-[0.3em] text-[#806a42]">
+          <p className="mt-7 text-xs font-semibold uppercase tracking-[0.3em] text-[#806a42] sm:text-sm">
             Aujourd'hui
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold text-[#263d35] md:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#263d35] sm:text-4xl md:text-5xl">
             Parlons Islam commence une nouvelle page.
           </h2>
 
-          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Cette plateforme est appelée à rassembler des ressources autour
             du Coran, de la Sunna, du fiqh malikite, du Taṣawwuf et de la
             Ṭarīqa Tijâniyya, dans un esprit d'étude, de transmission et
             de recherche du bien.
           </p>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Mais ce site n'est qu'une étape. D'autres projets, d'autres
             contenus et peut-être d'autres formes de service verront le jour
             avec le temps.
           </p>
 
-          <div className="mt-10 flex justify-center">
+          <div className="mt-9 flex justify-center">
 
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-full bg-[#263d35] px-7 py-4 font-semibold text-white shadow-lg transition hover:bg-[#192c26]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#263d35] px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 hover:bg-[#192c26] hover:shadow-xl sm:px-7 sm:py-4 sm:text-base"
             >
               Continuer vers Parlons Islam
-              <ArrowRight size={18} />
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
 
           </div>
 
-        </div>
+        </Reveal>
+
       </section>
 
     </main>
