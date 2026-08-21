@@ -18,6 +18,7 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import IslamicDateTime from "@/components/IslamicDateTime";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -28,47 +29,94 @@ export default function Home() {
       {/* HERO */}
       {/* ========================================================= */}
 
-      <section className="relative overflow-hidden border-b border-emerald-100 bg-gradient-to-b from-emerald-50 via-white to-[#fcfcfa]">
-        <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-100/40 blur-3xl" />
+      <section className="relative isolate overflow-hidden border-b border-[#ded7c7] bg-[#f8f6ef]">
+
+        {/* Fond : zaouia */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/zaouia.jpeg')" }}
+        />
+
+        {/* Voile lumineux pour garder le texte lisible */}
+        <div className="absolute inset-0 bg-[#f8f6ef]/80" />
+
+        {/* Lumière centrale */}
+        <div className="absolute left-1/2 top-[-180px] h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#d8c99d]/30 blur-3xl" />
+
+        {/* Ornements */}
+        <div className="absolute right-[-120px] top-20 h-72 w-72 rounded-full border border-[#c8b77f]/30" />
+
+        <div className="absolute bottom-[-160px] left-[-100px] h-80 w-80 rounded-full border border-[#263d35]/15" />
 
         <div className="relative mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
-          <div className="mx-auto mb-7 flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-white/80 px-4 py-2 text-sm font-medium text-emerald-800 shadow-sm">
-            <Moon size={16} />
-            <span>Science • Spiritualité • Transmission</span>
-          </div>
 
-          <h1 className="text-5xl font-bold tracking-tight text-emerald-950 md:text-7xl">
-            Parlons Islam
-          </h1>
+          <Reveal>
+            <div className="mx-auto mb-8 flex w-fit items-center gap-3 rounded-full border border-[#d8ccb0] bg-white/70 px-5 py-2.5 text-sm font-medium text-[#6f5c35] shadow-sm backdrop-blur-sm">
+              <Moon size={16} strokeWidth={1.5} />
 
-          <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl">
-            Une porte ouverte vers le Coran, la Sunna, le Fiqh malikite,
-            le Taṣawwuf et l&apos;héritage de la Ṭarīqa Tijāniyya.
-          </p>
+              <span>
+                Science · Spiritualité · Transmission
+              </span>
+            </div>
+          </Reveal>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-gray-500">
-            Apprendre, comprendre et cheminer avec une approche fondée sur
-            les sources de l&apos;Islam et la transmission du savoir.
-          </p>
+          <Reveal delay={0.08}>
+            <h1 className="text-5xl font-semibold tracking-tight text-[#263d35] sm:text-6xl md:text-7xl">
+              Parlons Islam
+            </h1>
+          </Reveal>
 
-          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/coran"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-800 px-7 py-4 font-semibold text-white shadow-sm transition hover:bg-emerald-900"
-            >
-              <BookOpen size={20} />
-              Explorer le Coran
-              <ArrowRight size={18} />
-            </Link>
+          <Reveal delay={0.14}>
+            <div className="mx-auto mt-7 flex items-center justify-center gap-3">
+              <span className="h-px w-12 bg-[#c5ae73]" />
+              <span className="text-[#a1874f]">✦</span>
+              <span className="h-px w-12 bg-[#c5ae73]" />
+            </div>
+          </Reveal>
 
-            <Link
-              href="/tassawuf"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-white px-7 py-4 font-semibold text-emerald-900 transition hover:bg-emerald-50"
-            >
-              <Heart size={20} />
-              Découvrir le Taṣawwuf
-            </Link>
-          </div>
+          <Reveal delay={0.2}>
+            <p className="mx-auto mt-7 max-w-3xl text-xl leading-relaxed text-[#4f5b56] md:text-2xl">
+              Une porte ouverte vers le Coran, la Sunna, le Fiqh malikite,
+              le Taṣawwuf et l&apos;héritage de la Ṭarīqa Tijāniyya.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.26}>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#69736f] md:text-lg">
+              Apprendre, comprendre et cheminer avec une approche fondée
+              sur les sources de l&apos;Islam et la transmission du savoir.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.32}>
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+
+              <Link
+                href="/coran"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#263d35] px-7 py-4 font-semibold text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-[#1c3029] hover:shadow-lg"
+              >
+                <BookOpen size={20} strokeWidth={1.7} />
+                Explorer le Coran
+                <ArrowRight size={18} />
+              </Link>
+
+              <Link
+                href="/tassawuf"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#cfc4aa] bg-white/80 px-7 py-4 font-semibold text-[#344b42] shadow-sm backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
+              >
+                <Heart size={20} strokeWidth={1.7} />
+                Découvrir le Taṣawwuf
+              </Link>
+
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.38}>
+            <p className="mt-12 text-xs font-medium uppercase tracking-[0.3em] text-[#9a8659]">
+              العلم · العمل · الإحسان
+            </p>
+          </Reveal>
+
         </div>
       </section>
 
@@ -82,26 +130,30 @@ export default function Home() {
       {/* RECHERCHE */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="mx-auto flex w-fit items-center justify-center rounded-2xl bg-emerald-50 p-3 text-emerald-800">
-            <Search size={24} />
+      <Reveal>
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-5xl px-6 text-center">
+
+            <div className="mx-auto flex w-fit items-center justify-center rounded-2xl bg-emerald-50 p-3 text-emerald-800">
+              <Search size={24} />
+            </div>
+
+            <h2 className="mt-5 text-3xl font-bold text-emerald-950 md:text-4xl">
+              Que recherchez-vous ?
+            </h2>
+
+            <p className="mx-auto mt-3 max-w-2xl text-gray-600">
+              Explorez les différentes ressources de Parlons Islam à travers
+              une recherche simple.
+            </p>
+
+            <div className="mx-auto mt-8 max-w-3xl">
+              <SearchBar />
+            </div>
+
           </div>
-
-          <h2 className="mt-5 text-3xl font-bold text-emerald-950 md:text-4xl">
-            Que recherchez-vous ?
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-gray-600">
-            Explorez les différentes ressources de Parlons Islam à travers
-            une recherche simple.
-          </p>
-
-          <div className="mx-auto mt-8 max-w-3xl">
-            <SearchBar />
-          </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* ========================================================= */}
       {/* GRANDES SECTIONS */}
@@ -109,267 +161,345 @@ export default function Home() {
 
       <section className="bg-[#fcfcfa] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-12 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Explorer
-            </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-              Les sciences de l&apos;Islam
-            </h2>
+          <Reveal>
+            <div className="mb-12 text-center">
 
-            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Des espaces consacrés au Livre d&apos;Allah, à la tradition
-              prophétique, au droit musulman et à l&apos;éducation spirituelle.
-            </p>
-          </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                Explorer
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
+                Les sciences de l&apos;Islam
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+                Des espaces consacrés au Livre d&apos;Allah, à la tradition
+                prophétique, au droit musulman et à l&apos;éducation spirituelle.
+              </p>
+
+            </div>
+          </Reveal>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
             {/* CORAN */}
 
-            <Link
-              href="/coran"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <BookOpen size={30} />
+            <Reveal delay={0.05}>
+              <Link
+                href="/coran"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <BookOpen size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Coran
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Coran
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Lecture des sourates, traductions, récitations et découverte
+                  du Livre d&apos;Allah.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Lecture des sourates, traductions, récitations et découverte
-                du Livre d&apos;Allah.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
 
             {/* HADITHS */}
 
-            <Link
-              href="/hadiths"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <ScrollText size={30} />
+            <Reveal delay={0.1}>
+              <Link
+                href="/hadiths"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <ScrollText size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Hadiths
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Hadiths
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Les paroles et enseignements du Messager d&apos;Allah ﷺ,
+                  organisés pour faciliter l&apos;étude.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Les paroles et enseignements du Messager d&apos;Allah ﷺ,
-                organisés pour faciliter l&apos;étude.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
 
             {/* FIQH */}
 
-            <Link
-              href="/fiqh-malikite"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <Scale size={30} />
+            <Reveal delay={0.15}>
+              <Link
+                href="/fiqh-malikite"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <Scale size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Fiqh malikite
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Fiqh malikite
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Découvrez les fondements et les règles du madhhab de l&apos;Imam
+                  Mālik رحمه الله.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Découvrez les fondements et les règles du madhhab de l&apos;Imam
-                Mālik رحمه الله.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
 
             {/* TASSAWUF */}
 
-            <Link
-              href="/tassawuf"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <Heart size={30} />
+            <Reveal delay={0.05}>
+              <Link
+                href="/tassawuf"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <Heart size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Taṣawwuf
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Taṣawwuf
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Tazkiyat an-nafs, dhikr, adab et cheminement vers la
+                  purification intérieure.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Tazkiyat an-nafs, dhikr, adab et cheminement vers la
-                purification intérieure.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
 
             {/* TIJANIYYA */}
 
-            <Link
-              href="/tijaniyya/histoire"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <Star size={30} />
+            <Reveal delay={0.1}>
+              <Link
+                href="/tijaniyya/histoire"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <Star size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Ṭarīqa Tijāniyya
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Ṭarīqa Tijāniyya
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Histoire, transmission et héritage spirituel de la voie
+                  Tijāniyya.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Histoire, transmission et héritage spirituel de la voie
-                Tijāniyya.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
 
             {/* RECITATEURS */}
 
-            <Link
-              href="/recitateurs"
-              className="group rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                  <BookMarked size={30} />
+            <Reveal delay={0.15}>
+              <Link
+                href="/recitateurs"
+                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
+                    <BookMarked size={30} />
+                  </div>
+
+                  <ArrowRight
+                    size={20}
+                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
+                  />
+
                 </div>
 
-                <ArrowRight
-                  size={20}
-                  className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                />
-              </div>
+                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
+                  Récitateurs
+                </h3>
 
-              <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                Récitateurs
-              </h3>
+                <p className="mt-3 leading-7 text-gray-600">
+                  Découvrez les récitateurs et explorez les différentes
+                  possibilités d&apos;écoute du Coran.
+                </p>
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Découvrez les récitateurs et explorez les différentes
-                possibilités d&apos;écoute du Coran.
-              </p>
-            </Link>
+              </Link>
+            </Reveal>
+
           </div>
         </div>
       </section>
 
       {/* ========================================================= */}
-      {/* CITATION / ESPRIT DU SITE */}
+      {/* CITATION */}
       {/* ========================================================= */}
 
-      <section className="border-y border-emerald-100 bg-white py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <Sparkles className="mx-auto text-emerald-700" size={30} />
+      <Reveal>
+        <section className="border-y border-emerald-100 bg-white py-20">
 
-          <blockquote className="mt-6 text-2xl font-medium leading-relaxed text-emerald-950 md:text-3xl">
-            « La connaissance guide les pas, et la purification du cœur
-            donne au chemin sa lumière. »
-          </blockquote>
+          <div className="mx-auto max-w-4xl px-6 text-center">
 
-          <p className="mt-5 text-sm text-gray-500">
-            Une invitation à unir science, adoration et bon comportement.
-          </p>
-        </div>
-      </section>
+            <Sparkles
+              className="mx-auto text-emerald-700"
+              size={30}
+            />
+
+            <blockquote className="mt-6 text-2xl font-medium leading-relaxed text-emerald-950 md:text-3xl">
+              « La connaissance guide les pas, et la purification du cœur
+              donne au chemin sa lumière. »
+            </blockquote>
+
+            <p className="mt-5 text-sm text-gray-500">
+              Une invitation à unir science, adoration et bon comportement.
+            </p>
+
+          </div>
+
+        </section>
+      </Reveal>
 
       {/* ========================================================= */}
       {/* NOTRE DEMARCHE */}
       {/* ========================================================= */}
 
       <section className="bg-[#fcfcfa] py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-12 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Notre démarche
-            </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
-              Apprendre. Comprendre. Cheminer.
-            </h2>
-          </div>
+        <div className="mx-auto max-w-6xl px-6">
+
+          <Reveal>
+            <div className="mb-12 text-center">
+
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                Notre démarche
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
+                Apprendre. Comprendre. Cheminer.
+              </h2>
+
+            </div>
+          </Reveal>
 
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
-                <BookOpen size={26} />
+
+            {/* SCIENCE */}
+
+            <Reveal delay={0.05}>
+              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
+
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
+                  <BookOpen size={26} />
+                </div>
+
+                <h3 className="mt-5 text-xl font-bold text-emerald-950">
+                  Science
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Rechercher la connaissance religieuse à travers les sources
+                  et les enseignements transmis.
+                </p>
+
               </div>
+            </Reveal>
 
-              <h3 className="mt-5 text-xl font-bold text-emerald-950">
-                Science
-              </h3>
+            {/* COMPREHENSION */}
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Rechercher la connaissance religieuse à travers les sources
-                et les enseignements transmis.
-              </p>
-            </div>
+            <Reveal delay={0.1}>
+              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
 
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
-                <Compass size={26} />
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
+                  <Compass size={26} />
+                </div>
+
+                <h3 className="mt-5 text-xl font-bold text-emerald-950">
+                  Compréhension
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Donner au lecteur des explications accessibles et structurées
+                  pour approfondir son étude.
+                </p>
+
               </div>
+            </Reveal>
 
-              <h3 className="mt-5 text-xl font-bold text-emerald-950">
-                Compréhension
-              </h3>
+            {/* SPIRITUALITE */}
 
-              <p className="mt-3 leading-7 text-gray-600">
-                Donner au lecteur des explications accessibles et structurées
-                pour approfondir son étude.
-              </p>
-            </div>
+            <Reveal delay={0.15}>
+              <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
 
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
-                <Heart size={26} />
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800">
+                  <Heart size={26} />
+                </div>
+
+                <h3 className="mt-5 text-xl font-bold text-emerald-950">
+                  Spiritualité
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Cultiver la sincérité, le dhikr, le bon comportement et la
+                  purification du cœur.
+                </p>
+
               </div>
+            </Reveal>
 
-              <h3 className="mt-5 text-xl font-bold text-emerald-950">
-                Spiritualité
-              </h3>
-
-              <p className="mt-3 leading-7 text-gray-600">
-                Cultiver la sincérité, le dhikr, le bon comportement et la
-                purification du cœur.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -378,30 +508,41 @@ export default function Home() {
       {/* CTA FINAL */}
       {/* ========================================================= */}
 
-      <section className="bg-emerald-950 py-20 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <Moon className="mx-auto text-emerald-200" size={32} />
+      <Reveal>
+        <section className="bg-emerald-950 py-20 text-white">
 
-          <h2 className="mt-6 text-3xl font-bold md:text-4xl">
-            Que votre recherche de connaissance soit une lumière.
-          </h2>
+          <div className="mx-auto max-w-4xl px-6 text-center">
 
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-100">
-            Explorez les ressources de Parlons Islam et avancez pas à pas
-            dans l&apos;étude, la compréhension et la purification intérieure.
-          </p>
+            <Moon
+              className="mx-auto text-emerald-200"
+              size={32}
+            />
 
-          <div className="mt-8">
-            <Link
-              href="/coran"
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-7 py-4 font-semibold text-emerald-950 transition hover:bg-emerald-50"
-            >
-              Commencer l&apos;exploration
-              <ArrowRight size={18} />
-            </Link>
+            <h2 className="mt-6 text-3xl font-bold md:text-4xl">
+              Que votre recherche de connaissance soit une lumière.
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-100">
+              Explorez les ressources de Parlons Islam et avancez pas à pas
+              dans l&apos;étude, la compréhension et la purification intérieure.
+            </p>
+
+            <div className="mt-8">
+
+              <Link
+                href="/coran"
+                className="inline-flex items-center gap-2 rounded-2xl bg-white px-7 py-4 font-semibold text-emerald-950 transition hover:bg-emerald-50"
+              >
+                Commencer l&apos;exploration
+                <ArrowRight size={18} />
+              </Link>
+
+            </div>
+
           </div>
-        </div>
-      </section>
+
+        </section>
+      </Reveal>
 
       <Footer />
     </main>
