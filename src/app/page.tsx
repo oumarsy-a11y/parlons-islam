@@ -155,235 +155,329 @@ export default function Home() {
         </section>
       </Reveal>
 
-      {/* ========================================================= */}
+            {/* ========================================================= */}
       {/* GRANDES SECTIONS */}
       {/* ========================================================= */}
 
-      <section className="bg-[#fcfcfa] py-20">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative overflow-hidden bg-[#fcfcfa] py-24">
+
+        {/* Ornements subtils */}
+        <div className="pointer-events-none absolute -left-32 top-32 h-72 w-72 rounded-full border border-[#c5ae73]/10" />
+        <div className="pointer-events-none absolute -right-32 bottom-20 h-80 w-80 rounded-full border border-[#263d35]/10" />
+
+        <div className="relative mx-auto max-w-6xl px-6">
 
           <Reveal>
-            <div className="mb-12 text-center">
+            <div className="mx-auto mb-14 max-w-3xl text-center">
 
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-                Explorer
-              </p>
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-[#c5ae73]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9a8659]">
+                  Explorer
+                </span>
+                <span className="h-px w-10 bg-[#c5ae73]" />
+              </div>
 
-              <h2 className="mt-3 text-3xl font-bold text-emerald-950 md:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#263d35] sm:text-4xl md:text-5xl">
                 Les sciences de l&apos;Islam
               </h2>
 
-              <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-                Des espaces consacrés au Livre d&apos;Allah, à la tradition
-                prophétique, au droit musulman et à l&apos;éducation spirituelle.
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#69736f] md:text-lg">
+                Du Livre d&apos;Allah à la purification du cœur,
+                explorez les différentes dimensions du savoir islamique.
               </p>
 
             </div>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
             {/* CORAN */}
 
             <Reveal delay={0.05}>
               <Link
                 href="/coran"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <BookOpen size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <BookOpen size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    01
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Coran
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Lecture des sourates, traductions, récitations et découverte
-                  du Livre d&apos;Allah.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Coran
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Lecture des sourates, traductions, récitations et découverte
+                    du Livre d&apos;Allah.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
+
 
             {/* HADITHS */}
 
             <Reveal delay={0.1}>
               <Link
                 href="/hadiths"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <ScrollText size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <ScrollText size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    02
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Hadiths
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Les paroles et enseignements du Messager d&apos;Allah ﷺ,
-                  organisés pour faciliter l&apos;étude.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Hadiths
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Les paroles et enseignements du Messager d&apos;Allah ﷺ,
+                    organisés pour faciliter l&apos;étude.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
+
 
             {/* FIQH */}
 
             <Reveal delay={0.15}>
               <Link
                 href="/fiqh-malikite"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <Scale size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <Scale size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    03
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Fiqh malikite
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Découvrez les fondements et les règles du madhhab de l&apos;Imam
-                  Mālik رحمه الله.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Fiqh malikite
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Découvrez les fondements et les règles du madhhab de
+                    l&apos;Imam Mālik رحمه الله.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
+
 
             {/* TASSAWUF */}
 
-            <Reveal delay={0.05}>
+            <Reveal delay={0.2}>
               <Link
                 href="/tassawuf"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <Heart size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <Heart size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    04
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Taṣawwuf
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Tazkiyat an-nafs, dhikr, adab et cheminement vers la
-                  purification intérieure.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Taṣawwuf
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Tazkiyat an-nafs, dhikr, adab et cheminement vers la
+                    purification intérieure.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
+
 
             {/* TIJANIYYA */}
 
-            <Reveal delay={0.1}>
+            <Reveal delay={0.25}>
               <Link
                 href="/tijaniyya/histoire"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <Star size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <Moon size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    05
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Ṭarīqa Tijāniyya
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Histoire, transmission et héritage spirituel de la voie
-                  Tijāniyya.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Ṭarīqa Tijāniyya
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Histoire, transmission et héritage spirituel de la voie
+                    Tijāniyya.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
 
+
             {/* RECITATEURS */}
 
-            <Reveal delay={0.15}>
+            <Reveal delay={0.3}>
               <Link
                 href="/recitateurs"
-                className="group block rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative block overflow-hidden rounded-[2rem] border border-[#ddd7c8] bg-white p-7 shadow-[0_8px_30px_rgba(38,61,53,0.04)] transition-all duration-500 hover:-translate-y-2 hover:border-[#c5ae73]/50 hover:shadow-[0_20px_45px_rgba(38,61,53,0.10)]"
               >
+                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-[#f8f6ef] transition-transform duration-500 group-hover:scale-125" />
 
-                <div className="flex items-center justify-between">
+                <div className="relative flex items-start justify-between">
 
-                  <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-                    <BookMarked size={30} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#dfe9e4] bg-[#f1f6f3] text-[#263d35] transition-all duration-500 group-hover:border-[#c5ae73]/40 group-hover:bg-[#f8f6ef] group-hover:text-[#8d7544]">
+                    <BookMarked size={27} strokeWidth={1.6} />
                   </div>
 
-                  <ArrowRight
-                    size={20}
-                    className="text-gray-400 transition group-hover:translate-x-1 group-hover:text-emerald-700"
-                  />
+                  <span className="text-xs font-semibold tracking-widest text-[#b4aa91]">
+                    06
+                  </span>
 
                 </div>
 
-                <h3 className="mt-7 text-2xl font-bold text-emerald-950">
-                  Récitateurs
-                </h3>
+                <div className="relative mt-7">
 
-                <p className="mt-3 leading-7 text-gray-600">
-                  Découvrez les récitateurs et explorez les différentes
-                  possibilités d&apos;écoute du Coran.
-                </p>
+                  <div className="mb-3 h-px w-8 bg-[#c5ae73] transition-all duration-500 group-hover:w-14" />
 
+                  <h3 className="text-xl font-semibold text-[#263d35]">
+                    Récitateurs
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-[#69736f]">
+                    Découvrez les récitateurs et explorez les différentes
+                    possibilités d&apos;écoute du Coran.
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-[#8d7544]">
+                    Explorer
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </div>
+
+                </div>
               </Link>
             </Reveal>
 
           </div>
         </div>
       </section>
+          
 
       {/* ========================================================= */}
       {/* CITATION */}
