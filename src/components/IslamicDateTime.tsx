@@ -7,41 +7,13 @@ const arabicDigits = (value: string | number) =>
   String(value).replace(/\d/g, (digit) => "٠١٢٣٤٥٦٧٨٩"[Number(digit)]);
 
 const days = [
-  {
-    arabic: "الأحد",
-    phonetic: "Al-Aḥad",
-    french: "Dimanche",
-  },
-  {
-    arabic: "الإثنين",
-    phonetic: "Al-Ithnayn",
-    french: "Lundi",
-  },
-  {
-    arabic: "الثلاثاء",
-    phonetic: "Ath-Thulāthāʾ",
-    french: "Mardi",
-  },
-  {
-    arabic: "الأربعاء",
-    phonetic: "Al-Arbiʿāʾ",
-    french: "Mercredi",
-  },
-  {
-    arabic: "الخميس",
-    phonetic: "Al-Khamīs",
-    french: "Jeudi",
-  },
-  {
-    arabic: "الجمعة",
-    phonetic: "Al-Jumuʿah",
-    french: "Vendredi",
-  },
-  {
-    arabic: "السبت",
-    phonetic: "As-Sabt",
-    french: "Samedi",
-  },
+  { arabic: "الأحد", phonetic: "Al-Aḥad", french: "Dimanche" },
+  { arabic: "الإثنين", phonetic: "Al-Ithnayn", french: "Lundi" },
+  { arabic: "الثلاثاء", phonetic: "Ath-Thulāthāʾ", french: "Mardi" },
+  { arabic: "الأربعاء", phonetic: "Al-Arbiʿāʾ", french: "Mercredi" },
+  { arabic: "الخميس", phonetic: "Al-Khamīs", french: "Jeudi" },
+  { arabic: "الجمعة", phonetic: "Al-Jumuʿah", french: "Vendredi" },
+  { arabic: "السبت", phonetic: "As-Sabt", french: "Samedi" },
 ];
 
 const gregorianMonths = [
@@ -91,27 +63,30 @@ const hijriMonthsArabic = [
 
 function getHijriDate(date: Date) {
   try {
-    const formatter = new Intl.DateTimeFormat("en-TN-u-ca-islamic-umalqura", {
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
-    });
+    const formatter = new Intl.DateTimeFormat(
+      "en-TN-u-ca-islamic-umalqura",
+      {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      }
+    );
 
     const parts = formatter.formatToParts(date);
 
-    const day = Number(parts.find((p) => p.type === "day")?.value ?? 1);
-    const month = Number(
-      parts.find((p) => p.type === "month")?.value ?? 1,
-    );
-    const year = Number(
-      parts.find((p) => p.type === "year")?.value ?? 1447,
+    const day = Number(
+      parts.find((p) => p.type === "day")?.value ?? 1
     );
 
-    return {
-      day,
-      month,
-      year,
-    };
+    const month = Number(
+      parts.find((p) => p.type === "month")?.value ?? 1
+    );
+
+    const year = Number(
+      parts.find((p) => p.type === "year")?.value ?? 1447
+    );
+
+    return { day, month, year };
   } catch {
     return {
       day: 1,
@@ -151,20 +126,20 @@ export default function IslamicDateTime() {
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
 
-  const hijriMonthIndex = Math.max(0, Math.min(11, hijri.month - 1));
+  const hijriMonthIndex = Math.max(
+    0,
+    Math.min(11, hijri.month - 1)
+  );
 
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       className="mx-auto w-full max-w-5xl px-5 py-10 sm:px-6 sm:py-14"
     >
       <div className="overflow-hidden rounded-[2rem] border border-[#d9cfb8] bg-[#fbfaf6] shadow-sm">
-
         <div className="grid md:grid-cols-[1fr_auto_1fr] md:items-center">
-
           {/* JOUR */}
           <div className="px-6 py-8 text-center sm:px-10 md:py-10">
             <p className="text-3xl font-semibold text-[#263d35] sm:text-4xl">
@@ -180,11 +155,11 @@ export default function IslamicDateTime() {
             </p>
           </div>
 
+          {/* SÉPARATEUR */}
           <div className="hidden h-20 w-px bg-[#ded4bd] md:block" />
 
-          {/* DATE */}
+          {/* DATES */}
           <div className="border-t border-[#ded4bd] px-6 py-8 text-center sm:px-10 md:border-t-0 md:py-10">
-
             <p className="text-2xl font-semibold text-[#263d35] sm:text-3xl">
               {arabicDigits(gregorianDay)} {gregorianMonth}{" "}
               {arabicDigits(gregorianYear)}
@@ -202,17 +177,15 @@ export default function IslamicDateTime() {
             </p>
 
             <p className="mt-2 text-sm text-slate-500">
-              {arabicDigits(hijri.day)} {hijriMonths[hijriMonthIndex]}{" "}
+              {arabicDigits(hijri.day)}{" "}
+              {hijriMonths[hijriMonthIndex]}{" "}
               {arabicDigits(hijri.year)}
             </p>
-
           </div>
-
         </div>
 
         {/* HORLOGE */}
         <div className="border-t border-[#ded4bd] bg-[#263d35] px-6 py-6 text-center">
-
           <p
             dir="ltr"
             className="font-mono text-4xl font-light tracking-[0.15em] text-[#e1c986] sm:text-5xl"
@@ -224,9 +197,7 @@ export default function IslamicDateTime() {
           <p className="mt-2 text-xs uppercase tracking-[0.25em] text-white/50">
             Heure locale
           </p>
-
         </div>
-
       </div>
     </motion.section>
   );
