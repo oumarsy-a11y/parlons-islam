@@ -1,136 +1,155 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { BookOpenText, Heart, MoonStar } from "lucide-react";
+import Link from "next/link";
+import { Heart } from "lucide-react";
+
+const explorerLinks = [
+  { label: "Coran", href: "/coran" },
+  { label: "Récitateurs", href: "/recitateurs" },
+  { label: "Hadiths", href: "/hadiths" },
+];
+
+const knowledgeLinks = [
+  { label: "Fiqh Malikite", href: "/fiqh-malikite" },
+  { label: "Taṣawwuf", href: "/tassawuf" },
+  { label: "Tijāniyya", href: "/tijaniyya" },
+  { label: "Notre histoire", href: "/notre-histoire" },
+  { label: "Nous contacter", href: "/contact" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-green-950 py-14 text-white">
+    <footer className="bg-[#1d3029] text-[#f8f5ec]">
+      <div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
 
-      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid gap-12 md:grid-cols-3">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="grid gap-10 md:grid-cols-3"
-        >
-
-          {/* Identité */}
+          {/* IDENTITÉ */}
           <div>
-
-            <div className="mb-5 flex items-center gap-3">
-
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3"
+            >
               <Image
                 src="/images/logo.png"
                 alt="Parlons Islam"
-                width={65}
-                height={65}
+                width={52}
+                height={52}
+                className="h-[52px] w-[52px] object-contain"
               />
 
               <div>
-                <h2 className="text-2xl font-bold">
+                <p className="text-xl font-semibold tracking-tight">
                   Parlons Islam
-                </h2>
+                </p>
 
-                <p className="text-sm text-yellow-300">
-                  Coran • Sunna • Taṣawwuf
+                <p className="mt-1 text-xs tracking-[0.12em] text-[#c9a96e]">
+                  Science · Spiritualité · Transmission
                 </p>
               </div>
+            </Link>
 
-            </div>
-
-
-            <p className="leading-relaxed text-green-100">
-              Une plateforme dédiée au savoir islamique,
-              au Coran, à la Sunna, au fiqh malikite,
-              au taṣawwuf et à la Tarîqa Tijāniyya.
+            <p className="mt-6 max-w-sm text-sm leading-7 text-[#d6ddd8]">
+              Une plateforme dédiée à la connaissance islamique,
+              à la compréhension et à la transmission d&apos;un
+              savoir bénéfique.
             </p>
 
+            <p
+              dir="rtl"
+              lang="ar"
+              className="mt-6 text-sm tracking-wide text-[#c9a96e]"
+            >
+              العلم · العمل · الإحسان
+            </p>
           </div>
 
-
-          {/* Explorer */}
+          {/* EXPLORER */}
           <div>
-
-            <h3 className="mb-5 text-xl font-semibold text-yellow-300">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c9a96e]">
               Explorer
             </h3>
 
-            <ul className="space-y-3 text-green-100">
-
-              <li className="transition hover:text-yellow-300">
-                Coran
-              </li>
-
-              <li className="transition hover:text-yellow-300">
-                Hadiths
-              </li>
-
-              <li className="transition hover:text-yellow-300">
-                Fiqh Malikite
-              </li>
-
-              <li className="transition hover:text-yellow-300">
-                Taṣawwuf
-              </li>
-
-              <li className="transition hover:text-yellow-300">
-                Tijāniyya
-              </li>
-
+            <ul className="mt-5 space-y-3">
+              {explorerLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#d6ddd8] transition-colors duration-300 hover:text-[#c9a96e]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-
           </div>
 
-
-          {/* Vision */}
+          {/* CONNAISSANCE */}
           <div>
-
-            <h3 className="mb-5 text-xl font-semibold text-yellow-300">
-              Notre vision
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c9a96e]">
+              Connaissance
             </h3>
 
+            <ul className="mt-5 space-y-3">
+              {knowledgeLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#d6ddd8] transition-colors duration-300 hover:text-[#c9a96e]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <p className="leading-relaxed text-green-100">
-              Transmettre un savoir bénéfique et accompagner
-              les cœurs vers la connaissance, la sagesse et
-              la proximité avec Allah.
-            </p>
+        </div>
 
+        {/* DÉMARCHE */}
+        <div className="mt-12 border-t border-[#385047] pt-8">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
-            <div className="mt-6 flex gap-4 text-yellow-300">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c9a96e]">
+                Notre démarche
+              </p>
 
-              <MoonStar size={25} />
-              <BookOpenText size={25} />
-              <Heart size={25} />
+              <p className="mt-3 text-sm leading-6 text-[#d6ddd8]">
+                Faire de la connaissance une lumière, de la compréhension
+                une responsabilité et de la transmission un service.
+              </p>
+            </div>
 
+            <div className="flex items-center gap-2 text-sm italic text-[#d6ddd8]">
+              <Heart
+                size={16}
+                strokeWidth={1.5}
+                className="text-[#c9a96e]"
+              />
+              <span>
+                Servir Allah en servant Ses créatures.
+              </span>
             </div>
 
           </div>
-
-
-        </motion.div>
-
-
-        {/* Bas du footer */}
-        <div className="
-          mt-12
-          border-t
-          border-green-800
-          pt-6
-          text-center
-          text-sm
-          text-green-200
-        ">
-          © {new Date().getFullYear()} Parlons Islam — Tous droits réservés
         </div>
 
+        {/* BAS DU FOOTER */}
+        <div className="mt-8 flex flex-col gap-3 border-t border-[#385047] pt-6 text-xs text-[#aebbb5] sm:flex-row sm:items-center sm:justify-between">
+
+          <p>
+            © {new Date().getFullYear()} Parlons Islam
+          </p>
+
+          <p>
+            Tous droits réservés.
+          </p>
+
+        </div>
 
       </div>
-
     </footer>
   );
 }
