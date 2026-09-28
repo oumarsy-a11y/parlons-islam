@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Search, BookOpenText } from "lucide-react";
+import {
+  BookOpenText,
+  Search,
+  Sparkles,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 
 interface Sourate {
@@ -40,245 +44,393 @@ export default function CoranList({
     );
   }, [search, sourates]);
 
+  const hasSearch = search.trim().length > 0;
+
   return (
     <div className="mx-auto max-w-6xl px-6">
+      {/* Barre de recherche */}
 
-      {/* Recherche */}
+      <div className="mx-auto max-w-3xl">
+        <div
+          className="
+            rounded-[1.75rem]
+            border
+            border-[#c9a96e]/20
+            bg-[#fcfaf5]
+            p-2
+            shadow-[0_10px_35px_rgba(18,55,42,0.05)]
+            transition-all
+            duration-300
+            focus-within:border-[#c9a96e]/45
+            focus-within:shadow-[0_14px_40px_rgba(18,55,42,0.08)]
+          "
+        >
+          <div className="flex items-center gap-3 px-4 py-3">
+            <Search
+              size={20}
+              strokeWidth={1.7}
+              className="shrink-0 text-[#8d6b35]"
+            />
 
-      <div className="mx-auto mb-12 max-w-2xl">
+            <input
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Rechercher une sourate ou un numéro..."
+              aria-label="Rechercher une sourate"
+              className="
+                min-w-0
+                flex-1
+                bg-transparent
+                text-sm
+                text-green-950
+                outline-none
+                placeholder:text-gray-400
+                md:text-base
+              "
+            />
+
+            {hasSearch && (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                aria-label="Effacer la recherche"
+                className="
+                  rounded-full
+                  px-2.5
+                  py-1
+                  text-xs
+                  font-medium
+                  text-gray-400
+                  transition-colors
+                  hover:bg-[#f8f5ec]
+                  hover:text-green-900
+                "
+              >
+                Effacer
+              </button>
+            )}
+          </div>
+        </div>
 
         <div
           className="
+            mt-5
             flex
+            flex-wrap
             items-center
+            justify-between
             gap-3
-            rounded-2xl
-            border
-            border-green-100
-            bg-white
-            px-5
-            py-4
-            shadow-sm
-            focus-within:border-green-400
-            focus-within:ring-2
-            focus-within:ring-green-100
+            px-1
           "
         >
-          <Search
-            size={22}
-            className="shrink-0 text-green-800"
-          />
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <BookOpenText
+              size={15}
+              strokeWidth={1.6}
+              className="text-[#8d6b35]"
+            />
 
-          <input
-            type="search"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Rechercher une sourate..."
-            className="
-              w-full
-              bg-transparent
-              text-gray-800
-              outline-none
-              placeholder:text-gray-400
-            "
-          />
+            <span>
+              {hasSearch
+                ? `${filteredSourates.length} sourate${
+                    filteredSourates.length > 1 ? "s" : ""
+                  } trouvée${
+                    filteredSourates.length > 1 ? "s" : ""
+                  }`
+                : `${sourates.length || 114} sourates`}
+            </span>
+          </div>
 
+          {!hasSearch && (
+            <div
+              className="
+                flex
+                items-center
+                gap-2
+                text-xs
+                text-green-900/70
+              "
+            >
+              <Sparkles
+                size={14}
+                strokeWidth={1.6}
+                className="text-[#8d6b35]"
+              />
+
+              <span>Le Livre d'Allah ﷻ</span>
+            </div>
+          )}
         </div>
-
-        {search && (
-          <p className="mt-3 text-center text-sm text-gray-500">
-            {filteredSourates.length} sourate
-            {filteredSourates.length > 1 ? "s" : ""} trouvée
-            {filteredSourates.length > 1 ? "s" : ""}
-          </p>
-        )}
-
       </div>
-
 
       {/* Liste */}
 
-      {sourates.length === 0 ? (
+      <div className="mt-10">
+        {sourates.length === 0 ? (
+          <div
+            className="
+              rounded-[2rem]
+              border
+              border-[#c9a96e]/15
+              bg-[#fcfaf5]
+              p-12
+              text-center
+              shadow-sm
+            "
+          >
+            <BookOpenText
+              size={42}
+              strokeWidth={1.4}
+              className="mx-auto text-[#8d6b35]"
+            />
 
-        <div
-          className="
-            rounded-3xl
-            bg-green-50
-            p-10
-            text-center
-            text-gray-600
-          "
-        >
-          Chargement des sourates du Coran...
-        </div>
+            <p className="mt-5 font-medium text-green-950">
+              Chargement des sourates du Coran...
+            </p>
+          </div>
+        ) : filteredSourates.length === 0 ? (
+          <div
+            className="
+              rounded-[2rem]
+              border
+              border-[#c9a96e]/15
+              bg-[#fcfaf5]
+              p-12
+              text-center
+              shadow-sm
+            "
+          >
+            <BookOpenText
+              size={42}
+              strokeWidth={1.4}
+              className="mx-auto text-[#8d6b35]"
+            />
 
-      ) : filteredSourates.length === 0 ? (
+            <p className="mt-5 font-semibold text-green-950">
+              Aucune sourate trouvée
+            </p>
 
-        <div
-          className="
-            rounded-3xl
-            bg-green-50
-            p-10
-            text-center
-            text-gray-600
-          "
-        >
-          <BookOpenText
-            size={40}
-            className="mx-auto mb-4 text-green-800"
-          />
+            <p className="mt-2 text-sm text-gray-500">
+              Essayez avec un autre nom ou numéro.
+            </p>
 
-          <p className="font-semibold">
-            Aucune sourate trouvée.
-          </p>
-
-          <p className="mt-2 text-sm">
-            Essayez avec un autre nom ou numéro.
-          </p>
-        </div>
-
-      ) : (
-
-        <div
-          className="
-            grid
-            gap-6
-            md:grid-cols-2
-            lg:grid-cols-3
-          "
-        >
-
-          {filteredSourates.map((sourate, index) => (
-
-            <motion.div
-              key={sourate.number}
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.35,
-                delay: Math.min(index * 0.025, 0.3),
-              }}
-              viewport={{
-                once: true,
-              }}
+            <button
+              type="button"
+              onClick={() => setSearch("")}
+              className="
+                mt-6
+                rounded-full
+                border
+                border-green-900/15
+                bg-white
+                px-5
+                py-2.5
+                text-sm
+                font-medium
+                text-green-950
+                transition-all
+                hover:border-[#c9a96e]/40
+                hover:bg-[#f8f5ec]
+              "
             >
-
-              <Link
-                href={`/coran/${sourate.number}`}
-                className="
-                  group
-                  block
-                  rounded-3xl
-                  border
-                  border-green-100
-                  bg-white
-                  p-6
-                  shadow-sm
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-green-200
-                  hover:shadow-lg
-                "
+              Afficher les sourates
+            </button>
+          </div>
+        ) : (
+          <div
+            className="
+              grid
+              gap-5
+              md:grid-cols-2
+              lg:grid-cols-3
+            "
+          >
+            {filteredSourates.map((sourate, index) => (
+              <motion.div
+                key={sourate.number}
+                initial={{
+                  opacity: 0,
+                  y: 14,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: Math.min(index * 0.018, 0.22),
+                }}
+                viewport={{
+                  once: true,
+                  margin: "0px 0px -40px 0px",
+                }}
               >
-
-                <div className="flex items-center justify-between gap-4">
-
-                  <span
-                    className="
-                      flex
-                      h-12
-                      w-12
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-green-900
-                      font-bold
-                      text-white
-                      transition-transform
-                      duration-300
-                      group-hover:scale-110
-                    "
-                  >
-                    {sourate.number}
-                  </span>
-
-                  <span
-                    dir="rtl"
-                    className="
-                      text-right
-                      text-2xl
-                      font-semibold
-                      text-green-900
-                    "
-                  >
-                    {sourate.name}
-                  </span>
-
-                </div>
-
-
-                <h2
+                <Link
+                  href={`/coran/${sourate.number}`}
                   className="
-                    mt-6
-                    text-xl
-                    font-bold
-                    text-green-900
-                    transition-colors
-                    group-hover:text-green-700
+                    group
+                    relative
+                    flex
+                    min-h-[210px]
+                    flex-col
+                    overflow-hidden
+                    rounded-[1.75rem]
+                    border
+                    border-[#c9a96e]/15
+                    bg-white
+                    p-6
+                    shadow-[0_8px_30px_rgba(18,55,42,0.035)]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-[#c9a96e]/35
+                    hover:shadow-[0_18px_42px_rgba(18,55,42,0.08)]
                   "
                 >
-                  {sourate.englishName}
-                </h2>
+                  {/* Motif décoratif */}
 
-
-                <div className="mt-3 flex flex-wrap gap-2">
-
-                  <span
+                  <div
+                    aria-hidden="true"
                     className="
+                      pointer-events-none
+                      absolute
+                      -right-10
+                      -top-10
+                      h-28
+                      w-28
                       rounded-full
-                      bg-green-50
-                      px-3
-                      py-1
-                      text-sm
-                      text-green-800
+                      border
+                      border-[#c9a96e]/10
+                      transition-transform
+                      duration-500
+                      group-hover:scale-110
+                    "
+                  />
+
+                  <div className="relative flex items-start justify-between gap-4">
+                    {/* Numéro */}
+
+                    <span
+                      className="
+                        flex
+                        h-11
+                        w-11
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-[#c9a96e]/30
+                        bg-[#f8f5ec]
+                        text-sm
+                        font-semibold
+                        tabular-nums
+                        text-green-950
+                        transition-all
+                        duration-300
+                        group-hover:border-[#c9a96e]/60
+                        group-hover:bg-white
+                      "
+                    >
+                      {sourate.number}
+                    </span>
+
+                    {/* Type de révélation */}
+
+                    <span
+                      className="
+                        rounded-full
+                        border
+                        border-green-900/10
+                        bg-green-50/70
+                        px-3
+                        py-1.5
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.1em]
+                        text-green-900/70
+                      "
+                    >
+                      {sourate.revelationType}
+                    </span>
+                  </div>
+
+                  {/* Noms */}
+
+                  <div className="relative mt-7 flex-1">
+                    <p
+                      dir="rtl"
+                      lang="ar"
+                      className="
+                        text-right
+                        text-[1.7rem]
+                        font-medium
+                        leading-relaxed
+                        text-green-950
+                        transition-colors
+                        duration-300
+                        group-hover:text-green-900
+                      "
+                    >
+                      {sourate.name}
+                    </p>
+
+                    <h2
+                      className="
+                        mt-3
+                        text-lg
+                        font-semibold
+                        leading-snug
+                        text-green-950
+                        transition-colors
+                        duration-300
+                        group-hover:text-green-800
+                      "
+                    >
+                      {sourate.englishName}
+                    </h2>
+                  </div>
+
+                  {/* Pied de carte */}
+
+                  <div
+                    className="
+                      relative
+                      mt-6
+                      flex
+                      items-center
+                      justify-between
+                      border-t
+                      border-[#c9a96e]/10
+                      pt-4
                     "
                   >
-                    {sourate.numberOfAyahs} versets
-                  </span>
+                    <span className="text-xs text-gray-500">
+                      {sourate.numberOfAyahs} verset
+                      {sourate.numberOfAyahs > 1 ? "s" : ""}
+                    </span>
 
-                  <span
-                    className="
-                      rounded-full
-                      bg-gray-50
-                      px-3
-                      py-1
-                      text-sm
-                      text-gray-600
-                    "
-                  >
-                    {sourate.revelationType}
-                  </span>
-
-                </div>
-
-              </Link>
-
-            </motion.div>
-
-          ))}
-
-        </div>
-
-      )}
-
+                    <span
+                      className="
+                        text-xs
+                        font-medium
+                        text-[#8d6b35]
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-0.5
+                      "
+                    >
+                      Lire →
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
