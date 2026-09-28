@@ -15,6 +15,7 @@ import { reciters } from "@/data/reciters";
 
 interface QuranPlayerProps {
   surahNumber: number;
+  initialReciterId?: string;
 }
 
 const formatTime = (seconds: number) => {
@@ -32,6 +33,7 @@ const formatTime = (seconds: number) => {
 
 export default function QuranPlayer({
   surahNumber,
+  initialReciterId,
 }: QuranPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -39,8 +41,16 @@ export default function QuranPlayer({
     (reciter) => reciter.url
   );
 
+  const defaultReciterId =
+    initialReciterId &&
+    availableReciters.some(
+      (reciter) => reciter.id === initialReciterId
+    )
+      ? initialReciterId
+      : availableReciters[0]?.id ?? "";
+
   const [selectedReciterId, setSelectedReciterId] = useState(
-    availableReciters[0]?.id ?? ""
+    defaultReciterId
   );
 
   const [playing, setPlaying] = useState(false);
@@ -49,6 +59,24 @@ export default function QuranPlayer({
   const [volume, setVolume] = useState(1);
   const [repeatCount, setRepeatCount] = useState(1);
   const [currentRepeat, setCurrentRepeat] = useState(1);
+
+  /*
+   * Synchronise le réciteur demandé depuis l'URL
+   * avec le lecteur.
+   */
+  useEffect(() => {
+    if (!initialReciterId) {
+      return;
+    }
+
+    const isAvailable = availableReciters.some(
+      (reciter) => reciter.id === initialReciterId
+    );
+
+    if (isAvailable) {
+      setSelectedReciterId(initialReciterId);
+    }
+  }, [initialReciterId]);
 
   const selectedReciter = availableReciters.find(
     (reciter) => reciter.id === selectedReciterId

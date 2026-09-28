@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowLeft,
-  ArrowRight,
   BookOpenText,
   ChevronLeft,
   ChevronRight,
@@ -20,12 +19,18 @@ interface PageProps {
   params: Promise<{
     id: string;
   }>;
+  searchParams: Promise<{
+    reciter?: string;
+  }>;
 }
 
 export default async function CoranPage({
   params,
+  searchParams,
 }: PageProps) {
   const { id } = await params;
+  const { reciter } = await searchParams;
+
   const sourateId = Number(id);
 
   const sourate = await getSourate(sourateId);
@@ -79,6 +84,10 @@ export default async function CoranPage({
   const nextSurah =
     sourateId < 114 ? sourateId + 1 : null;
 
+  const reciterQuery = reciter
+    ? `?reciter=${encodeURIComponent(reciter)}`
+    : "";
+
   return (
     <main className="min-h-screen bg-white">
       <Menu />
@@ -96,9 +105,8 @@ export default async function CoranPage({
         "
       >
         <div className="mx-auto max-w-4xl text-center">
-
           <Link
-            href="/coran"
+            href={`/coran${reciterQuery}`}
             className="
               mb-10
               inline-flex
@@ -144,7 +152,6 @@ export default async function CoranPage({
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-
             <span
               className="
                 rounded-full
@@ -189,7 +196,6 @@ export default async function CoranPage({
             >
               Hafs 'an 'Asim
             </span>
-
           </div>
         </div>
       </section>
@@ -198,7 +204,10 @@ export default async function CoranPage({
 
       <section className="px-6 py-8">
         <div className="mx-auto max-w-4xl">
-          <QuranPlayer surahNumber={sourateId} />
+          <QuranPlayer
+            surahNumber={sourateId}
+            initialReciterId={reciter}
+          />
         </div>
       </section>
 
@@ -206,7 +215,6 @@ export default async function CoranPage({
 
       <section className="px-6 pb-16">
         <div className="mx-auto max-w-4xl space-y-6">
-
           {sourate.ayahs.map(
             (ayah: any, index: number) => {
               const translated =
@@ -227,9 +235,7 @@ export default async function CoranPage({
                     md:p-8
                   "
                 >
-
                   <div className="flex items-center justify-between">
-
                     <span
                       className="
                         flex
@@ -247,15 +253,9 @@ export default async function CoranPage({
                       {ayah.numberInSurah}
                     </span>
 
-                    <span
-                      className="
-                        text-sm
-                        text-gray-400
-                      "
-                    >
+                    <span className="text-sm text-gray-400">
                       Verset {ayah.numberInSurah}
                     </span>
-
                   </div>
 
                   <p
@@ -293,12 +293,10 @@ export default async function CoranPage({
                       </p>
                     </div>
                   )}
-
                 </article>
               );
             }
           )}
-
         </div>
       </section>
 
@@ -314,10 +312,9 @@ export default async function CoranPage({
             sm:grid-cols-3
           "
         >
-
           {previousSurah ? (
             <Link
-              href={`/coran/${previousSurah}`}
+              href={`/coran/${previousSurah}${reciterQuery}`}
               className="
                 flex
                 items-center
@@ -342,6 +339,7 @@ export default async function CoranPage({
                 <p className="text-xs text-gray-500">
                   Précédente
                 </p>
+
                 <p className="font-semibold text-green-900">
                   Sourate {previousSurah}
                 </p>
@@ -374,7 +372,7 @@ export default async function CoranPage({
 
           {nextSurah ? (
             <Link
-              href={`/coran/${nextSurah}`}
+              href={`/coran/${nextSurah}${reciterQuery}`}
               className="
                 flex
                 items-center
@@ -396,6 +394,7 @@ export default async function CoranPage({
                 <p className="text-xs text-gray-500">
                   Suivante
                 </p>
+
                 <p className="font-semibold text-green-900">
                   Sourate {nextSurah}
                 </p>
@@ -409,7 +408,6 @@ export default async function CoranPage({
           ) : (
             <div />
           )}
-
         </div>
       </section>
 
