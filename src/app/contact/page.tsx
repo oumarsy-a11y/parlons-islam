@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -5,6 +6,15 @@ import {
   MessageCircle,
   Users,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Nous contacter",
+  description:
+    "Contactez l’équipe de Parlons Islam pour toute question, suggestion ou demande liée à notre démarche de connaissance, de spiritualité et de transmission.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 const contacts = [
   {
