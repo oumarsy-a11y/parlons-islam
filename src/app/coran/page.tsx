@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { BookOpenText } from "lucide-react";
 
 import Menu from "@/components/Menu";
@@ -5,6 +6,15 @@ import Footer from "@/components/Footer";
 import CoranList from "@/components/CoranList";
 
 import { getSourates } from "@/services/quranService";
+
+export const metadata: Metadata = {
+  title: "Coran",
+  description:
+    "Découvrez et lisez le Coran en ligne, sourate par sourate, avec les textes disponibles et l’écoute des récitations.",
+  alternates: {
+    canonical: "/coran",
+  },
+};
 
 export default async function CoranPage() {
   const sourates = await getSourates();
