@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,6 +18,15 @@ import {
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Notre histoire",
+  description:
+    "Découvrez l’histoire de Parlons Islam, une initiative née entre frères autour de la connaissance, de la spiritualité et de la transmission des enseignements islamiques.",
+  alternates: {
+    canonical: "/notre-histoire",
+  },
+};
 
 const timeline = [
   {
