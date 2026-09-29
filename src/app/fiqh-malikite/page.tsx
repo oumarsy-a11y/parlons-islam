@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Scale,
@@ -13,6 +14,15 @@ import {
 
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Fiqh Malikite",
+  description:
+    "Découvrez les bases du fiqh malikite : purification, prière, jeûne, zakāt, pèlerinage, famille et autres domaines de la vie musulmane.",
+  alternates: {
+    canonical: "/fiqh-malikite",
+  },
+};
 
 const sections = [
   {
