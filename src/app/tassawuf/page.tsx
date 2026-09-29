@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BookOpen,
@@ -13,6 +14,15 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
 import { tassawuf } from "@/data/tassawuf";
+
+export const metadata: Metadata = {
+  title: "Taṣawwuf",
+  description:
+    "Découvrez le taṣawwuf à travers la science, la spiritualité, l’éducation du cœur et la transmission des enseignements islamiques.",
+  alternates: {
+    canonical: "/tassawuf",
+  },
+};
 
 export default function TassawufPage() {
   return (
