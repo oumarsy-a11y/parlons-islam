@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   BookOpen,
   Heart,
@@ -18,6 +19,15 @@ import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import IslamicDateTime from "@/components/IslamicDateTime";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description:
+    "Parlons Islam — Une plateforme de connaissance islamique pour apprendre, comprendre et cheminer à travers le Coran, la Sunna, le fiqh malikite, le taṣawwuf et la ṭarīqa tijāniyya.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
