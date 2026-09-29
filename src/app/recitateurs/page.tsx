@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BookOpen,
@@ -11,6 +12,15 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
 import { reciters } from "@/data/reciters";
+
+export const metadata: Metadata = {
+  title: "Récitateurs du Coran",
+  description:
+    "Découvrez les récitateurs du Coran proposés par Parlons Islam et écoutez différentes récitations, notamment en riwāyat Ḥafṣ et Warsh.",
+  alternates: {
+    canonical: "/recitateurs",
+  },
+};
 
 export default function RecitateursPage() {
   return (
