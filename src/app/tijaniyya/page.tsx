@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -12,6 +13,15 @@ import {
 
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Ṭarīqa Tijāniyya",
+  description:
+    "Découvrez la ṭarīqa tijāniyya, son histoire, ses enseignements, sa spiritualité et ses pratiques dans une démarche de science et de transmission.",
+  alternates: {
+    canonical: "/tijaniyya",
+  },
+};
 
 export default function TijaniyyaPage() {
   return (
