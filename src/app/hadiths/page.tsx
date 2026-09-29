@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, Sparkles, ArrowUpRight } from "lucide-react";
 
@@ -6,6 +7,15 @@ import Footer from "@/components/Footer";
 
 import { hadiths } from "@/data/hadiths";
 import { categoriesHadiths } from "@/data/categoriesHadiths";
+
+export const metadata: Metadata = {
+  title: "Hadiths",
+  description:
+    "Découvrez une sélection de hadiths du Prophète ﷺ sur la foi, la spiritualité, le comportement et les enseignements de l’islam.",
+  alternates: {
+    canonical: "/hadiths",
+  },
+};
 
 export default function HadithsPage() {
   return (
