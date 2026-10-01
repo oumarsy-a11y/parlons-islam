@@ -21,7 +21,7 @@ import IslamicDateTime from "@/components/IslamicDateTime";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Accueil",
+  title: "Parlons Islam — Science, Spiritualité & Transmission",
   description:
     "Parlons Islam — Une plateforme de connaissance islamique pour apprendre, comprendre et cheminer à travers le Coran, la Sunna, le fiqh malikite, le taṣawwuf et la ṭarīqa tijāniyya.",
   alternates: {
