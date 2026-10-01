@@ -6,6 +6,15 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Le Dhikr — Rappel d'Allah et spiritualité — Parlons Islam",
+  description:
+    "Découvrez le Dhikr, le rappel d'Allah par la langue et le cœur, à travers le Coran, les invocations et la spiritualité islamique.",
+};
+
+
 export default function DhikrPage() {
   return (
     <main className="min-h-screen bg-white">

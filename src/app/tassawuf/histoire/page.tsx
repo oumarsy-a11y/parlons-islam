@@ -7,6 +7,14 @@ import {
   Heart,
 } from "lucide-react";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Histoire du Taṣawwuf — Parlons Islam",
+  description:
+    "Découvrez l'histoire du Taṣawwuf, de ses origines spirituelles dans l'Islam aux grandes voies de cheminement vers Allah.",
+};
+
 
 export default function HistoireTassawufPage() {
 

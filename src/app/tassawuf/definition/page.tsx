@@ -7,6 +7,14 @@ import {
 } from "lucide-react";
 
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Qu'est-ce que le Taṣawwuf ? — Parlons Islam",
+  description:
+    "Découvrez ce qu'est le Taṣawwuf, la purification du cœur et l'Iḥsān à travers une présentation de la spiritualité islamique.",
+};
+
 export default function DefinitionTassawufPage() {
 
 

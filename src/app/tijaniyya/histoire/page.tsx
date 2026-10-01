@@ -3,6 +3,14 @@ import Footer from "@/components/Footer";
 
 import { histoireTijaniyya } from "@/data/histoireTijaniyya";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Histoire de la Ṭarîqa Tijāniyya — Parlons Islam",
+  description:
+    "Découvrez l'histoire de la Ṭarîqa Tijāniyya, ses origines, ses maîtres et la transmission de cette voie spirituelle.",
+};
+
 
 export default function HistoireTijaniyyaPage() {
 
