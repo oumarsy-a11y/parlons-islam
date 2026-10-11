@@ -15,7 +15,7 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Ṭarīqa Tijāniyya",
+  title: "Ṭarīqa Tijāniyya : histoire et spiritualité",
   description:
     "Découvrez la ṭarīqa tijāniyya, son histoire, ses enseignements, sa spiritualité et ses pratiques dans une démarche de science et de transmission.",
   alternates: {

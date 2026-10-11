@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -22,6 +23,27 @@ interface PageProps {
   searchParams: Promise<{
     reciter?: string;
   }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const sourateId = Number(id);
+  const sourate = await getSourate(sourateId);
+
+  if (!sourate) {
+    return {
+      title: "Sourate introuvable",
+      description: "Cette sourate du Coran est introuvable sur Parlons Islam.",
+    };
+  }
+
+  return {
+    title: `Sourate ${sourate.name}`,
+    description: `Lisez la sourate ${sourate.name} du Coran en arabe, avec sa traduction française et l’écoute de récitations sur Parlons Islam.`,
+    alternates: {
+      canonical: `/coran/${sourate.number}`,
+    },
+  };
 }
 
 export default async function CoranPage({
