@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Le Dhikr — Rappel d'Allah et spiritualité — Parlons Islam",
   description:
     "Découvrez le Dhikr, le rappel d'Allah par la langue et le cœur, à travers le Coran, les invocations et la spiritualité islamique.",
+  alternates: {
+    canonical: "/tassawuf/dhikr",
+  },
 };
 
 

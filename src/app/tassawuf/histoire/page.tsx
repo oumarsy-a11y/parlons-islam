@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Histoire du Taṣawwuf — Parlons Islam",
   description:
     "Découvrez l'histoire du Taṣawwuf, de ses origines spirituelles dans l'Islam aux grandes voies de cheminement vers Allah.",
+  alternates: {
+    canonical: "/tassawuf/histoire",
+  },
 };
 
 
