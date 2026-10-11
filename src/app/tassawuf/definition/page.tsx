@@ -267,6 +267,27 @@ pratique et la purification du cœur.
 
 
 
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16" aria-labelledby="approfondir-definition">
+        <h2 id="approfondir-definition" className="mb-6 text-2xl font-bold text-green-900">
+          Pour approfondir
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/tassawuf/dhikr" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Le Dhikr</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Découvrir le rappel d’Allah et sa place dans la vie spirituelle.</p>
+          </a>
+          <a href="/tassawuf/histoire" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Histoire du Taṣawwuf</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Explorer le développement de la spiritualité musulmane.</p>
+          </a>
+          <a href="/fiqh-malikite" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Fiqh malikite</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Approfondir les règles et la pratique religieuse.</p>
+          </a>
+        </div>
+      </section>
+
       <Footer />
 
 

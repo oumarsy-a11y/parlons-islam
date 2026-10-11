@@ -246,6 +246,27 @@ Coran et la Sunna.
 
       </section>
 
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16" aria-labelledby="approfondir-dhikr">
+        <h2 id="approfondir-dhikr" className="mb-6 text-2xl font-bold text-green-900">
+          Poursuivre la lecture
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/tassawuf/definition" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Comprendre le Taṣawwuf</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Découvrir les fondements de la purification du cœur.</p>
+          </a>
+          <a href="/tassawuf/histoire" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Son histoire</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Replacer le cheminement spirituel dans son histoire.</p>
+          </a>
+          <a href="/tijaniyya" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">La Tijāniyya</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Découvrir cette voie spirituelle musulmane.</p>
+          </a>
+        </div>
+      </section>
+
       <Footer />
 
     </main>

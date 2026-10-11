@@ -335,6 +335,27 @@ en Afrique et dans le monde musulman.
 
 
 
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16" aria-labelledby="approfondir-histoire">
+        <h2 id="approfondir-histoire" className="mb-6 text-2xl font-bold text-green-900">
+          Pour aller plus loin
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/tassawuf" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Le Taṣawwuf</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Retrouver les notions essentielles de la spiritualité islamique.</p>
+          </a>
+          <a href="/tijaniyya" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">La Tijāniyya</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Approfondir l’une des voies évoquées dans cette histoire.</p>
+          </a>
+          <a href="/tassawuf/dhikr" className="rounded-2xl border border-green-100 bg-white p-5 transition hover:border-green-800">
+            <h3 className="font-semibold text-green-900">Le Dhikr</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">Découvrir la place du rappel d’Allah dans le cheminement spirituel.</p>
+          </a>
+        </div>
+      </section>
+
       <Footer />
 
 
