@@ -25,6 +25,10 @@ export const metadata: Metadata = {
 
   applicationName: "Parlons Islam",
 
+  verification: {
+    google: "P_-JhV2f1S5TVoBA53-BJg4zhHPpyZGaGEzSFPcD-og",
+  },
+
   authors: [
     {
       name: "Parlons Islam",
