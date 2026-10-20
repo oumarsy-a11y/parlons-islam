@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -6,10 +7,66 @@ import { histoireTassawuf } from "@/data/histoireTassawuf";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 
+const baseUrl = "https://parlons-islam.vercel.app";
+
 interface PageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return histoireTassawuf.map((chapitre) => ({
+    id: chapitre.id,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+
+  const chapitre = histoireTassawuf.find(
+    (item) => item.id === id
+  );
+
+  if (!chapitre) {
+    return {
+      title: "Chapitre introuvable | Parlons Islam",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  const description =
+    chapitre.subtitle ??
+    chapitre.content[0]?.slice(0, 155) ??
+    "Découvrez l'histoire de la spiritualité islamique sur Parlons Islam.";
+
+  const url = `${baseUrl}/tassawuf/histoire/${chapitre.id}`;
+
+  return {
+    title: `${chapitre.title} | Histoire du Taṣawwuf`,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${chapitre.title} | Parlons Islam`,
+      description,
+      url,
+      siteName: "Parlons Islam",
+      locale: "fr_FR",
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: `${chapitre.title} | Parlons Islam`,
+      description,
+    },
+  };
 }
 
 export default async function HistoireTassawufPage({
