@@ -12,16 +12,22 @@ export const histoireTassawuf: SectionTassawuf[] = [
     title: "1. Les origines de la spiritualité islamique",
     subtitle: "La purification du cœur à l'époque prophétique",
     content: [
-      "La spiritualité islamique trouve ses fondements dans le Coran et dans l'enseignement du Prophète Muhammad ﷺ. La purification de l'âme, la sincérité, la crainte révérencielle d'Allah, l'amour d'Allah, le rappel et l'excellence dans l'adoration occupent une place importante dans la tradition islamique.",
-      
-      "Le Coran invite les croyants à purifier leurs âmes et présente cette purification comme une voie de réussite. Il appelle également les croyants à multiplier le rappel d'Allah et à Lui consacrer leurs adorations avec sincérité.",
-      
-      "Le Prophète Muhammad ﷺ enseigna à ses Compagnons non seulement les règles apparentes de la religion, mais également la sincérité, la patience, la confiance en Allah, la modestie et la purification intérieure.",
-      
-      "Le célèbre hadith de Jibrîl عليه السلام résume les grandes dimensions de la religion à travers l'Islam, l'Îmân et l'Iḥsân. L'Iḥsân consiste à adorer Allah comme si l'on Le voyait, et si l'on ne Le voit pas, à savoir qu'Il nous voit."
+      "La spiritualité islamique trouve ses fondements dans le Coran et dans l'enseignement du Prophète Muhammad ﷺ. Elle invite le croyant à rechercher la proximité d'Allah par la foi, la sincérité, l'adoration, la purification de l'âme et le bon comportement envers les créatures. Elle ne se limite donc pas aux actes cultuels : elle concerne également les intentions, les paroles, les relations humaines et les responsabilités quotidiennes.",
+
+      "Le Coran accorde une place centrale à la purification intérieure. Allah déclare : « A réussi, certes, celui qui la purifie, et est perdu, certes, celui qui la corrompt » (Coran, 91:9-10). Ces versets soulignent l'importance du travail sur soi et de la lutte contre les défauts qui éloignent l'être humain de la droiture.",
+
+      "Le rappel d'Allah occupe lui aussi une place essentielle dans cette démarche. Le Coran appelle les croyants à se rappeler abondamment leur Seigneur (Coran, 33:41-42) et enseigne que les cœurs trouvent leur apaisement dans Son rappel (Coran, 13:28). Ce rappel nourrit la conscience spirituelle et aide le croyant à orienter ses actes vers Allah.",
+
+      "Le Prophète Muhammad ﷺ a formé ses Compagnons à la foi et à la pratique, mais aussi à la sincérité, à la patience, à l'humilité, à la miséricorde et à la confiance en Allah. Dans son enseignement, la valeur d'un acte ne dépend pas seulement de son apparence : l'intention et la qualité du comportement occupent également une place déterminante.",
+
+      "Le célèbre hadith de Jibrîl عليه السلام expose trois dimensions fondamentales de la religion : l'Islam, l'Îmân et l'Iḥsân. Le Prophète ﷺ y définit l'Iḥsân comme le fait d'adorer Allah comme si l'on Le voyait ; car, même si le croyant ne Le voit pas, Lui le voit. Ce hadith, rapporté notamment par Muslim, est devenu une référence majeure pour expliquer l'excellence spirituelle dans l'adoration.",
+
+      "À l'époque prophétique, cette éducation spirituelle s'inscrivait dans la vie complète du musulman. La prière, le jeûne, le rappel d'Allah, la recherche du savoir, le service rendu aux autres et le respect des droits d'autrui ne formaient pas des domaines opposés. La spiritualité authentique devait se manifester dans la foi, les actes et le comportement.",
+
+      "Il convient toutefois de distinguer les fondements spirituels présents dans le Coran et la Sunna de l'apparition ultérieure du taṣawwuf comme discipline portant son propre vocabulaire, ses méthodes pédagogiques et ses institutions. L'histoire du taṣawwuf étudie précisément cette évolution : comment des enseignements anciens sur la purification de l'âme ont été transmis, approfondis et organisés au fil des générations."
     ],
     source:
-      "Coran, 91:9-10 ; Coran, 33:41-42 ; Ṣaḥīḥ Muslim, Hadith de Jibrîl"
+      "Coran, 13:28 ; 33:41-42 ; 91:9-10. Ṣaḥīḥ Muslim, hadith de Jibrîl (n° 8 selon une numérotation courante ; la numérotation varie selon les éditions)."
   },
 
   {
