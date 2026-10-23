@@ -35,16 +35,22 @@ export const histoireTassawuf: SectionTassawuf[] = [
     title: "2. Ahl aṣ-Ṣuffa",
     subtitle: "Des Compagnons attachés à la connaissance et à la dévotion",
     content: [
-      "Parmi les Compagnons du Prophète Muhammad ﷺ figuraient les Ahl aṣ-Ṣuffa, un groupe de Compagnons qui séjournaient auprès de la mosquée de Médine.",
-      
-      "Beaucoup d'entre eux étaient pauvres et consacraient une grande partie de leur temps à l'apprentissage, à l'adoration et à la fréquentation du Messager d'Allah ﷺ.",
-      
-      "Leur exemple est souvent évoqué dans l'histoire de la spiritualité islamique pour illustrer le détachement des biens matériels, la recherche de la connaissance et l'attachement à l'adoration.",
-      
-      "Cependant, leur voie ne constituait pas un retrait absolu du monde. Leur comportement doit être compris dans le cadre général de l'Islam, qui associe l'adoration d'Allah, la recherche du savoir, les responsabilités humaines et le bon comportement."
+      "Les Ahl aṣ-Ṣuffa étaient des Compagnons du Prophète Muhammad ﷺ associés à un espace abrité, appelé aṣ-Ṣuffa, situé auprès de la mosquée de Médine. Cet espace accueillait notamment des hommes qui ne disposaient pas d'un logement ou de ressources suffisantes. Leur situation s'inscrivait dans le contexte de la jeune communauté musulmane, où les liens de solidarité jouaient un rôle essentiel.",
+
+      "Les récits transmis dans les recueils de hadiths décrivent la précarité de certains de ces Compagnons. Abū Hurayra رضي الله عنه, qui comptait parmi eux, évoque leur pauvreté et les difficultés qu'ils rencontraient pour se nourrir. Il explique également que leur proximité avec le Messager d'Allah ﷺ leur permettait d'assister à des enseignements dont d'autres personnes, occupées par leurs activités et leurs moyens de subsistance, pouvaient manquer une partie.",
+
+      "Les Ahl aṣ-Ṣuffa ne formaient pas nécessairement un groupe uniforme dont tous les membres auraient suivi exactement le même mode de vie. Les récits les présentent dans des situations diverses, marquées notamment par le besoin matériel, la fréquentation de la mosquée et la proximité du Prophète ﷺ. Il convient donc d'éviter de leur attribuer une organisation formelle ou des pratiques collectives précises sans preuve historique suffisante.",
+
+      "La solidarité envers ces Compagnons constitue un aspect important de leur histoire. Le Prophète ﷺ encourageait les croyants à prendre soin des personnes dans le besoin, et les membres de la communauté partageaient avec eux, selon leurs moyens, de la nourriture et des ressources. Leur histoire rappelle ainsi que la vie spirituelle ne se réduit pas à l'expérience individuelle : elle implique également la compassion, l'hospitalité et le soutien aux plus vulnérables.",
+
+      "La proximité du Messager d'Allah ﷺ favorisait l'accès à son enseignement et à son exemple. La transmission de la religion reposait alors sur l'écoute, l'observation, la mémorisation et la mise en pratique. Les Ahl aṣ-Ṣuffa sont souvent évoqués dans les récits relatifs à cette période pour illustrer cette proximité, même si les sources ne permettent pas d'affirmer que chacun d'eux se consacrait exclusivement à l'étude ou à l'adoration.",
+
+      "Dans l'histoire ultérieure du taṣawwuf, les Ahl aṣ-Ṣuffa ont été présentés comme un exemple de simplicité, de détachement matériel et de dévotion. Ce rapprochement relève d'une lecture spirituelle de leur expérience. Il faut toutefois distinguer cet héritage interprétatif de l'histoire institutionnelle : les Ahl aṣ-Ṣuffa ne constituaient pas une ṭarīqa au sens où ce terme sera employé dans des périodes postérieures.",
+
+      "Leur mémoire invite finalement à considérer ensemble plusieurs dimensions de la spiritualité islamique : la proximité avec l'enseignement prophétique, la patience dans l'épreuve, la recherche du savoir et la solidarité communautaire. Ces dimensions prennent tout leur sens lorsqu'elles sont replacées dans le cadre général du Coran et de la Sunna, sans transformer les récits historiques en affirmations que les sources ne permettent pas d'établir."
     ],
     source:
-      "Sources hadithiques et historiques relatives aux Ahl aṣ-Ṣuffa"
+      "Ṣaḥīḥ al-Bukhārī et Ṣaḥīḥ Muslim : récits d'Abū Hurayra رضي الله عنه relatifs aux Ahl aṣ-Ṣuffa et à leur situation. Les numérotations des hadiths varient selon les éditions."
   },
 
   {
